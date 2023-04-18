@@ -5,11 +5,13 @@
 
 #include "globals.h"
 
-#include "Button.h"
+#include "Buzzer.h"
+#include "Potmeter.h"
 
 class CSafe {
 private:
-  Button button;
+  Buzzer buzzer;
+  Potmeter potmeter;
 public:
   CSafe();
   void setup();

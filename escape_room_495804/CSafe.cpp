@@ -1,16 +1,14 @@
 #include "CSafe.h"
 
 CSafe::CSafe()
-: button(CSAFE_BUTTON_PIN) {
+: buzzer(CSAFE_BUZZER_PIN), potmeter(CSAFE_POTMETER_PIN) {
 }
 
 void CSafe::setup() {
 }
 
 void CSafe::loop() {
-  if (button.isPressed()) {
-    Serial.println("pressed");
-  } else {
-    Serial.println("not pressed");
-  }
+  delay(1000);
+  buzzer.buzz(500);
+  Serial.println(potmeter.getValue());
 }
