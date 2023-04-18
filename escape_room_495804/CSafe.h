@@ -8,10 +8,16 @@
 #include "Buzzer.h"
 #include "Potmeter.h"
 
+#include "CSafeStage.h"
+
 class CSafe {
 private:
   Buzzer buzzer;
   Potmeter potmeter;
+
+  int currentStageIndex = 0;
+  int stageCount = 3;
+  CSafeStage stages[3];
 public:
   CSafe();
   void setup();

@@ -1,7 +1,13 @@
 #include "CSafe.h"
 
 CSafe::CSafe()
-: buzzer(CSAFE_BUZZER_PIN), potmeter(CSAFE_POTMETER_PIN) {
+: buzzer(CSAFE_BUZZER_PIN),
+potmeter(CSAFE_POTMETER_PIN),
+stages{
+    CSafeStage(250, 350),
+    CSafeStage(625, 675),
+    CSafeStage(325, 350),
+} {
 }
 
 void CSafe::setup() {
