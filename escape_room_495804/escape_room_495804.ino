@@ -1,11 +1,8 @@
-#include "Templ.h"
+#include "globals.h"
 
 #include "CTempl.h"
 
-#define TEMPL_PIN 0
-Templ templ(TEMPL_PIN);
-
-CTempl cTempl(&templ);
+CTempl cTempl;
 
 void setup() {
   Serial.begin(9600);
