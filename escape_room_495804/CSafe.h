@@ -1,5 +1,5 @@
-#ifndef CLOCK_H
-#define CLOCK_H
+#ifndef CSAFE_H
+#define CSAFE_H
 
 #include <Arduino.h>
 
@@ -7,11 +7,11 @@
 
 #include "Button.h"
 
-class CLock {
+class CSafe {
 private:
   Button button;
 public:
-  CLock();
+  CSafe();
   void setup();
   void loop();
 };

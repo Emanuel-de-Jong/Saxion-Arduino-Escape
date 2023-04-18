@@ -1,13 +1,13 @@
-#include "CLock.h"
+#include "CSafe.h"
 
-CLock::CLock()
-: button(CLOCK_BUTTON_PIN) {
+CSafe::CSafe()
+: button(CSAFE_BUTTON_PIN) {
 }
 
-void CLock::setup() {
+void CSafe::setup() {
 }
 
-void CLock::loop() {
+void CSafe::loop() {
   if (button.isPressed()) {
     Serial.println("pressed");
   } else {
