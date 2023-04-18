@@ -5,6 +5,6 @@ Buzzer::Buzzer(uint8_t pin)
   pinMode(pin, OUTPUT);
 }
 
-void Buzzer::buzz(int duration) {
-  tone(pin, 262, duration);
+void Buzzer::buzz(int frequency, int duration) {
+  tone(pin, frequency, duration);
 }

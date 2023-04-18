@@ -7,7 +7,7 @@ private:
   int rangeEnd; 
 public:
   CSafeStage(int rangeStart, int rangeEnd);
-  bool isInRange(int value, int offset);
+  bool isInRange(int value, int offset = 0);
 };
 
 #endif

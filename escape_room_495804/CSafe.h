@@ -16,8 +16,13 @@ private:
   Potmeter potmeter;
 
   int currentStageIndex = 0;
-  int stageCount = 3;
   CSafeStage stages[3];
+  int stageCount = 3;
+
+  const int CHECK_RATE;
+  const int COUNTDOWN_DURATION;
+
+  int countdown;
 public:
   CSafe();
   void setup();
