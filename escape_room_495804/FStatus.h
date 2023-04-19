@@ -81,8 +81,12 @@ private:
     B10101
   };
 
+  void printTime();
+  void printChallenges();
+
 public:
   FStatus();
+
   void setup();
   void loop();
 };

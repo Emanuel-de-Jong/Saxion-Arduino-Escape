@@ -12,6 +12,8 @@ public:
   LiquidCrystal_I2C i2c;
 
   LCD();
+
+  void setup();
 };
 
 #endif
