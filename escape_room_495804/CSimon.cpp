@@ -5,6 +5,7 @@ CSimon::CSimon()
 buttonRed(CSIMON_BUTTON_RED_PIN),
 buttonYellow(CSIMON_BUTTON_YELLOW_PIN),
 buttonBlue(CSIMON_BUTTON_BLUE_PIN),
+buttons{buttonGreen, buttonRed, buttonYellow, buttonBlue},
 rgbLED(
   CSIMON_RGBLED_RED_PIN,
   CSIMON_RGBLED_GREEN_PIN,
@@ -27,23 +28,27 @@ void CSimon::setup() {
   rgbLED.setup();
 
   createRandomSequence();
+
+  rgbLED.setColor(sequence[sequenceIndex].rgb);
 }
 
 void CSimon::loop() {
-  // if (simonColors[0].button.isPressed()) {
-  //   Serial.println("Green");
-  // }
+  if (!isAnyButtonPressed()) return;
 
-  rgbLED.setColor(sequence[sequenceIndex].rgb);
+  if (isButtonPressedValid()) {
+    sequenceIndex++;
+    if (sequenceIndex > (SEQUENCE_SIZE - 1)) {
+      Serial.println("Complete");
+      createRandomSequence();
+    }
 
-  sequenceIndex++;
-  if (sequenceIndex > (SEQUENCE_SIZE - 1)) {
-    createRandomSequence();
-    delay(1000);
-    rgbLED.turnOff();
+    rgbLED.setColor(sequence[sequenceIndex].rgb);
+
+    Serial.println("Right");
+    delay(250);
+  } else {
+    Serial.println("Wrong");
   }
-  
-  delay(1000);
 }
 
 void CSimon::createRandomSequence() {
@@ -58,5 +63,20 @@ void CSimon::createRandomSequence() {
 }
 
 bool CSimon::isAnyButtonPressed() {
+  for (Button button : buttons) {
+    if (button.isPressed()) return true;
+  }
 
+  return false;
+}
+
+bool CSimon::isButtonPressedValid() {
+  Button buttonToPress = sequence[sequenceIndex].button;
+  if (!buttonToPress.isPressed()) return false;
+
+  for (Button button : buttons) {
+    if (button.isPressed() && !(button == buttonToPress)) return false;
+  }
+
+  return true;
 }

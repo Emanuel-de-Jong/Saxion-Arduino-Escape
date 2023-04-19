@@ -16,6 +16,7 @@ private:
   Button buttonRed;
   Button buttonYellow;
   Button buttonBlue;
+  Button buttons[4];
 
   RGBLED rgbLED;
 
@@ -34,6 +35,7 @@ public:
   void loop();
 
   bool isAnyButtonPressed();
+  bool isButtonPressedValid();
 };
 
 #endif

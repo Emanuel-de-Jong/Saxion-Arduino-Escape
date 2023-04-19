@@ -14,6 +14,10 @@ bool Button::isPressed() {
   return !digitalRead(pin);
 }
 
-int Button::getPin() {
+int Button::getPin() const {
   return pin;
+}
+
+bool Button::operator==(const Button& button) const {
+  return getPin() == button.getPin();
 }

@@ -14,7 +14,9 @@ class Button {
     void setup();
 
     bool isPressed();
-    int getPin();
+    int getPin() const;
+
+    bool operator==(const Button& button) const;
 };
 
 #endif
