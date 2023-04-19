@@ -1,4 +1,4 @@
-#include "FStatus.h"
+#include "src/functions/FStatus.h"
 
 FStatus::FStatus()
     : SOLVE_TIME(5 * 60)

@@ -1,4 +1,4 @@
-#include "LCD.h"
+#include "src/hardware/LCD.h"
 
 LCD::LCD()
     : i2c(0x27, 16, 2)

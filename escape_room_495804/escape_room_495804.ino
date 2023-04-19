@@ -1,10 +1,10 @@
-#include "globals.h"
+#include "src/globals.h"
 
-#include "FStatus.h"
+#include "src/functions/FStatus.h"
 
-#include "CSafe.h"
-#include "CRiddle.h"
-#include "CSimon.h"
+#include "src/challenges/CSafe.h"
+#include "src/challenges/CRiddle.h"
+#include "src/challenges/CSimon.h"
 
 FStatus fStatus;
 

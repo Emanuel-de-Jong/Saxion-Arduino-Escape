@@ -1,4 +1,4 @@
-#include "Templ.h"
+#include "src/hardware/Templ.h"
 
 Templ::Templ(uint8_t pin)
     : pin(pin)

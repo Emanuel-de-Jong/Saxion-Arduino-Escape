@@ -5,9 +5,9 @@
 
 #include <string>
 
-#include "globals.h"
+#include "src/globals.h"
 
-#include "LEDKey.h"
+#include "src/hardware/LEDKey.h"
 
 class CRiddle
 {

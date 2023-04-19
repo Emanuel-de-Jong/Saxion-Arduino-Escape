@@ -1,4 +1,4 @@
-#include "CSafe.h"
+#include "src/challenges/CSafe.h"
 
 CSafe::CSafe()
     : buzzer(CSAFE_BUZZER_PIN),

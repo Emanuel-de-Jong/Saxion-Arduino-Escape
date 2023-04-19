@@ -3,12 +3,12 @@
 
 #include <Arduino.h>
 
-#include "globals.h"
+#include "src/globals.h"
 
-#include "Buzzer.h"
-#include "Potmeter.h"
+#include "src/hardware/Buzzer.h"
+#include "src/hardware/Potmeter.h"
 
-#include "CSafeStage.h"
+#include "src/challenges/CSafeStage.h"
 
 class CSafe
 {

@@ -1,4 +1,4 @@
-#include "RGB.h"
+#include "src/RGB.h"
 
 RGB::RGB() {}
 

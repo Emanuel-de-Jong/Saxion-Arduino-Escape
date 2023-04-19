@@ -1,4 +1,4 @@
-#include "Buzzer.h"
+#include "src/hardware/Buzzer.h"
 
 Buzzer::Buzzer(uint8_t pin)
     : pin(pin)

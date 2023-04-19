@@ -7,7 +7,6 @@
 
 class LCD
 {
-private:
 public:
   LiquidCrystal_I2C i2c;
 

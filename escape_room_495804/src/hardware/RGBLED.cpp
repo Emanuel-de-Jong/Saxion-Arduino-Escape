@@ -1,4 +1,4 @@
-#include "RGBLED.h"
+#include "src/hardware/RGBLED.h"
 
 RGBLED::RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin)
     : ledRed(ledRedPin),

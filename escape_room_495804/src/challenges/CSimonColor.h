@@ -1,8 +1,8 @@
 #ifndef CSIMONCOLOR_H
 #define CSIMONCOLOR_H
 
-#include "Button.h"
-#include "RGB.h"
+#include "src/hardware/Button.h"
+#include "src/RGB.h"
 
 class CSimonColor
 {

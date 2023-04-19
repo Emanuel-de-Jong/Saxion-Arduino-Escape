@@ -1,4 +1,4 @@
-#include "Potmeter.h"
+#include "src/hardware/Potmeter.h"
 
 Potmeter::Potmeter(uint8_t pin)
     : pin(pin)

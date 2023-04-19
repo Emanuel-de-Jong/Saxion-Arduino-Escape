@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 
-#include "globals.h"
+#include "src/globals.h"
 
-#include "LCD.h"
+#include "src/hardware/LCD.h"
 
 class FStatus
 {

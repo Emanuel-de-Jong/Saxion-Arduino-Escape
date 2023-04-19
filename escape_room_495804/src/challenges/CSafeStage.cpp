@@ -1,4 +1,4 @@
-#include "CSafeStage.h"
+#include "src/challenges/CSafeStage.h"
 
 CSafeStage::CSafeStage(int rangeStart, int rangeEnd)
     : rangeStart(rangeStart), rangeEnd(rangeEnd)

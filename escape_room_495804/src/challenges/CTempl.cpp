@@ -1,4 +1,4 @@
-#include "CTempl.h"
+#include "src/challenges/CTempl.h"
 
 CTempl::CTempl()
     : templ(TEMPL_PIN)

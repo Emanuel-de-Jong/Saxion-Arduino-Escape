@@ -1,4 +1,4 @@
-#include "CSimon.h"
+#include "src/challenges/CSimon.h"
 
 CSimon::CSimon()
     : buttonGreen(CSIMON_BUTTON_GREEN_PIN),

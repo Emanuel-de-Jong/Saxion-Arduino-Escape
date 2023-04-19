@@ -1,4 +1,4 @@
-#include "CSimonColor.h"
+#include "src/challenges/CSimonColor.h"
 
 CSimonColor::CSimonColor() {}
 

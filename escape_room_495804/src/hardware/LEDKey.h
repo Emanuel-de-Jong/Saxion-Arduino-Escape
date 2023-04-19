@@ -7,7 +7,6 @@
 
 class LEDKey
 {
-private:
 public:
   TM1638plus tm;
 

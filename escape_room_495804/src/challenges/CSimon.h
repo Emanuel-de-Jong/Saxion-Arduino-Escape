@@ -3,12 +3,12 @@
 
 #include <Arduino.h>
 
-#include "globals.h"
+#include "src/globals.h"
 
-#include "Button.h"
-#include "RGBLED.h"
+#include "src/hardware/Button.h"
+#include "src/hardware/RGBLED.h"
 
-#include "CSimonColor.h"
+#include "src/challenges/CSimonColor.h"
 
 class CSimon
 {

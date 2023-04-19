@@ -1,4 +1,4 @@
-#include "CRiddle.h"
+#include "src/challenges/CRiddle.h"
 
 CRiddle::CRiddle()
     : ledKey(

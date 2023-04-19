@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 
-#include <RGB.h>
+#include "src/RGB.h"
 
-#include <LED.h>
+#include "src/hardware/LED.h"
 
 class RGBLED
 {

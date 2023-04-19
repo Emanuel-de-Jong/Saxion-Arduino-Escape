@@ -3,9 +3,9 @@
 
 #include <Arduino.h>
 
-#include "globals.h"
+#include "src/globals.h"
 
-#include "Templ.h"
+#include "src/hardware/Templ.h"
 
 class CTempl
 {
