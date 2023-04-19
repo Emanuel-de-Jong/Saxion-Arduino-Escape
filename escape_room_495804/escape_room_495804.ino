@@ -2,30 +2,30 @@
 
 #include "FStatus.h"
 
-#include "CTempl.h"
 #include "CSafe.h"
 #include "CRiddle.h"
+#include "CSimon.h"
 
 FStatus fStatus;
 
-CTempl cTempl;
 CSafe cSafe;
 CRiddle cRiddle;
+CSimon cSimon;
 
 void setup() {
   Serial.begin(9600);
 
   fStatus.setup();
   
-  cTempl.setup();
   cSafe.setup();
   cRiddle.setup();
+  cSimon.setup();
 }
 
 void loop() {
   // fStatus.loop();
 
-  cTempl.loop();
   // cSafe.loop();
-  cRiddle.loop();
+  // cRiddle.loop();
+  cSimon.loop();
 }
