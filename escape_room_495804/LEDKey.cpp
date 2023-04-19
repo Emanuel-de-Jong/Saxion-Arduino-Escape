@@ -8,6 +8,13 @@ void LEDKey::setup() {
   tm.displayBegin();
 }
 
-void LEDKey::func1() {
-  Serial.println("LEDKey::func1()");
+int LEDKey::getPressedBtn() {
+  uint8_t buttons = tm.readButtons();
+  for (int i = 0; i < 8; i++) {
+    if ((buttons >> i)  & 0x01) {
+      return i;
+    }
+  }
+  
+  return -1;
 }

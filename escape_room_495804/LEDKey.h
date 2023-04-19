@@ -7,14 +7,15 @@
 
 class LEDKey {
   private:
-    TM1638plus tm;
 
   public:
+    TM1638plus tm;
+    
     LEDKey(uint8_t strobePin, uint8_t clockPin, uint8_t dioPin);
 
     void setup();
 
-    void func1();
+    int getPressedBtn();
 };
 
 #endif
