@@ -9,11 +9,11 @@ void LED::setup() {
 }
 
 void LED::turnOn() {
-  digitalWrite(pin, HIGH);
+  analogWrite(pin, 255);
 }
 
 void LED::turnOff() {
-  digitalWrite(pin, LOW);
+  analogWrite(pin, 0);
 }
 
 void LED::setBrightness(int brightness) {

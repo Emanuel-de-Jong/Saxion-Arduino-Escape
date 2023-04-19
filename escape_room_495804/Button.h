@@ -5,14 +5,16 @@
 
 class Button {
   private:
-    uint8_t pin;
+    uint8_t pin = -1;
 
   public:
+    Button();
     Button(uint8_t pin);
 
     void setup();
 
     bool isPressed();
+    int getPin();
 };
 
 #endif

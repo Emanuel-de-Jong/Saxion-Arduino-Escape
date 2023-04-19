@@ -9,6 +9,7 @@ public:
   Button button;
   RGB rgb;
   
+  CSimonColor();
   CSimonColor(Button button, RGB rgb);
 };
 

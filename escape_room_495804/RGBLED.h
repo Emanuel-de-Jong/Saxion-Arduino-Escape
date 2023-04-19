@@ -13,7 +13,11 @@ class RGBLED {
     LED ledGreen;
     LED ledBlue;
 
+    RGB &currentRGB;
+
   public:
+    RGB BLACK;
+    RGB WHITE;
     RGB RED;
     RGB GREEN;
     RGB BLUE;
@@ -23,6 +27,8 @@ class RGBLED {
 
     void setup();
 
+    void turnOn();
+    void turnOff();
     void setColor(RGB rgb);
 };
 

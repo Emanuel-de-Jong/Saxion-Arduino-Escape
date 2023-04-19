@@ -12,7 +12,9 @@ rgbLED(
 ),
 simonColors{
   CSimonColor(buttonGreen, rgbLED.GREEN),
-  CSimonColor(buttonRed, rgbLED.RED)
+  CSimonColor(buttonRed, rgbLED.RED),
+  CSimonColor(buttonYellow, rgbLED.YELLOW),
+  CSimonColor(buttonBlue, rgbLED.BLUE),
 } {
 }
 
@@ -24,13 +26,37 @@ void CSimon::setup() {
 
   rgbLED.setup();
 
-  rgbLED.setColor(simonColors[0].rgb);
+  createRandomSequence();
 }
 
 void CSimon::loop() {
-  if (simonColors[0].button.isPressed()) {
-    Serial.println("Green");
+  // if (simonColors[0].button.isPressed()) {
+  //   Serial.println("Green");
+  // }
+
+  rgbLED.setColor(sequence[sequenceIndex].rgb);
+
+  sequenceIndex++;
+  if (sequenceIndex > (SEQUENCE_SIZE - 1)) {
+    createRandomSequence();
+    delay(1000);
+    rgbLED.turnOff();
   }
   
-  delay(100);
+  delay(1000);
+}
+
+void CSimon::createRandomSequence() {
+  sequenceIndex = 0;
+
+  // Give rand uptime as the seed to always get different random numbers
+  std::srand((unsigned) millis());
+
+  for (int i = 0; i < SEQUENCE_SIZE; i++) {
+    sequence[i] = simonColors[std::rand() % 4];
+  }
+}
+
+bool CSimon::isAnyButtonPressed() {
+
 }

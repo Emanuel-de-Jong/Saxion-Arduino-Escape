@@ -3,10 +3,11 @@
 
 class RGB {
   public:
-    int r;
-    int g;
-    int b;
+    int r = 0;
+    int g = 0;
+    int b = 0;
     
+    RGB();
     RGB(int r, int g, int b);
 };
 

@@ -20,12 +20,20 @@ private:
   RGBLED rgbLED;
 
   CSimonColor simonColors[4];
+  CSimonColor sequence[4];
+
+  const int SEQUENCE_SIZE = 4;
+  int sequenceIndex = 0;
+
+  void createRandomSequence();
 
 public:
   CSimon();
   
   void setup();
   void loop();
+
+  bool isAnyButtonPressed();
 };
 
 #endif
