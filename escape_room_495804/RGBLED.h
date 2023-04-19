@@ -14,10 +14,10 @@ class RGBLED {
     LED ledBlue;
 
   public:
-    const RGB RED(255, 0, 0);
-    const RGB GREEN(0, 255, 0);
-    const RGB BLUE(0, 0, 255);
-    const RGB YELLOW(255, 255, 0);
+    RGB RED;
+    RGB GREEN;
+    RGB BLUE;
+    RGB YELLOW;
 
     RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin);
 
