@@ -10,6 +10,8 @@ class Buzzer {
   public:
     Buzzer(uint8_t pin);
 
+    void setup();
+
     void buzz(int frequency, int duration);
 };
 

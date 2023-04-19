@@ -10,6 +10,8 @@ class Potmeter {
   public:
     Potmeter(uint8_t pin);
 
+    void setup();
+
     int getValue();
 };
 

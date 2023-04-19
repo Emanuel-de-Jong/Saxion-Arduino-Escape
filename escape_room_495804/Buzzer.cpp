@@ -2,6 +2,9 @@
 
 Buzzer::Buzzer(uint8_t pin) 
 : pin(pin) {
+}
+
+void Buzzer::setup() {
   pinMode(pin, OUTPUT);
 }
 

@@ -2,6 +2,9 @@
 
 Button::Button(uint8_t pin) 
 : pin(pin) {
+}
+
+void Button::setup() {
   pinMode(pin, INPUT_PULLUP);
 }
 

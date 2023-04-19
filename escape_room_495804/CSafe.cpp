@@ -14,6 +14,8 @@ countdown(COUNTDOWN_DURATION) {
 }
 
 void CSafe::setup() {
+  buzzer.setup();
+  potmeter.setup();
 }
 
 void CSafe::loop() {

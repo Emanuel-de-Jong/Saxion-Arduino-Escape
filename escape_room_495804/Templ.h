@@ -10,6 +10,8 @@ class Templ {
   public:
     Templ(uint8_t pin);
 
+    void setup();
+
     void func1();
 };
 

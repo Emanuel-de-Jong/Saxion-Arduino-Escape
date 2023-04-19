@@ -7,6 +7,7 @@ CTempl::CTempl()
 void CTempl::setup() {
   Serial.println("CTempl::setup()");
   
+  templ.setup();
   templ.func1();
 }
 

@@ -10,6 +10,8 @@ class Button {
   public:
     Button(uint8_t pin);
 
+    void setup();
+
     bool isPressed();
 };
 

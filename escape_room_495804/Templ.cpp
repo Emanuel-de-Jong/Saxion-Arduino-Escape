@@ -2,6 +2,9 @@
 
 Templ::Templ(uint8_t pin) 
 : pin(pin) {
+}
+
+void Templ::setup() {
   pinMode(pin, OUTPUT);
 }
 

@@ -2,6 +2,9 @@
 
 Potmeter::Potmeter(uint8_t pin) 
 : pin(pin) {
+}
+
+void Potmeter::setup() {
   pinMode(pin, INPUT);
 }
 
