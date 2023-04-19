@@ -9,7 +9,11 @@ rgbLED(
   CSIMON_RGBLED_RED_PIN,
   CSIMON_RGBLED_GREEN_PIN,
   CSIMON_RGBLED_BLUE_PIN
-) {
+),
+simonColors{
+  CSimonColor(buttonGreen, rgbLED.GREEN),
+  CSimonColor(buttonRed, rgbLED.RED)
+} {
 }
 
 void CSimon::setup() {
@@ -20,21 +24,12 @@ void CSimon::setup() {
 
   rgbLED.setup();
 
-  rgbLED.setColor(rgbLED.YELLOW);
+  rgbLED.setColor(simonColors[0].rgb);
 }
 
 void CSimon::loop() {
-  if (buttonGreen.isPressed()) {
+  if (simonColors[0].button.isPressed()) {
     Serial.println("Green");
-  }
-  if (buttonRed.isPressed()) {
-    Serial.println("Red");
-  }
-  if (buttonYellow.isPressed()) {
-    Serial.println("Yellow");
-  }
-  if (buttonBlue.isPressed()) {
-    Serial.println("Blue");
   }
   
   delay(100);

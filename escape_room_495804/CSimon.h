@@ -8,6 +8,8 @@
 #include "Button.h"
 #include "RGBLED.h"
 
+#include "CSimonColor.h"
+
 class CSimon {
 private:
   Button buttonGreen;
@@ -16,6 +18,8 @@ private:
   Button buttonBlue;
 
   RGBLED rgbLED;
+
+  CSimonColor simonColors[4];
 
 public:
   CSimon();

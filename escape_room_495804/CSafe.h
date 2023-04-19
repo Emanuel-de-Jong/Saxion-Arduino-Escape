@@ -23,8 +23,10 @@ private:
   const int COUNTDOWN_DURATION;
 
   int countdown;
+
 public:
   CSafe();
+  
   void setup();
   void loop();
 };
