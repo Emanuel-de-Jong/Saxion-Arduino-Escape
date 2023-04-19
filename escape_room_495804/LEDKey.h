@@ -5,17 +5,17 @@
 
 #include <TM1638plus.h>
 
-class LEDKey {
-  private:
+class LEDKey
+{
+private:
+public:
+  TM1638plus tm;
 
-  public:
-    TM1638plus tm;
-    
-    LEDKey(uint8_t strobePin, uint8_t clockPin, uint8_t dioPin);
+  LEDKey(uint8_t strobePin, uint8_t clockPin, uint8_t dioPin);
 
-    void setup();
+  void setup();
 
-    int getPressedBtn();
+  int getPressedBtn();
 };
 
 #endif

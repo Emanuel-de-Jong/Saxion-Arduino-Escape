@@ -10,7 +10,8 @@
 
 #include "CSimonColor.h"
 
-class CSimon {
+class CSimon
+{
 private:
   Button buttonGreen;
   Button buttonRed;
@@ -30,7 +31,7 @@ private:
 
 public:
   CSimon();
-  
+
   void setup();
   void loop();
 

@@ -1,15 +1,18 @@
 #include "CTempl.h"
 
 CTempl::CTempl()
-: templ(TEMPL_PIN) {
+    : templ(TEMPL_PIN)
+{
 }
 
-void CTempl::setup() {
+void CTempl::setup()
+{
   Serial.println("CTempl::setup()");
-  
+
   templ.setup();
   templ.func1();
 }
 
-void CTempl::loop() {
+void CTempl::loop()
+{
 }

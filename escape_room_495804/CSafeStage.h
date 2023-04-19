@@ -1,14 +1,15 @@
 #ifndef CSAFESTAGE_H
 #define CSAFESTAGE_H
 
-class CSafeStage {
+class CSafeStage
+{
 private:
   int rangeStart;
-  int rangeEnd; 
+  int rangeEnd;
 
 public:
   CSafeStage(int rangeStart, int rangeEnd);
-  
+
   bool isInRange(int value, int offset = 0);
 };
 

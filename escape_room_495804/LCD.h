@@ -5,9 +5,9 @@
 
 #include <LiquidCrystal_I2C.h>
 
-class LCD {
+class LCD
+{
 private:
-
 public:
   LiquidCrystal_I2C i2c;
 

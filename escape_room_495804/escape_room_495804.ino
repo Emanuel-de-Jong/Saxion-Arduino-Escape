@@ -12,17 +12,19 @@ CSafe cSafe;
 CRiddle cRiddle;
 CSimon cSimon;
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
 
   fStatus.setup();
-  
+
   cSafe.setup();
   cRiddle.setup();
   cSimon.setup();
 }
 
-void loop() {
+void loop()
+{
   // fStatus.loop();
 
   // cSafe.loop();

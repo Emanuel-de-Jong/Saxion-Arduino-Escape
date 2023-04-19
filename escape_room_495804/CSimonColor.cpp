@@ -2,7 +2,8 @@
 
 CSimonColor::CSimonColor() {}
 
-CSimonColor::CSimonColor(Button button, RGB rgb) 
-: button(button),
-rgb(rgb) {
+CSimonColor::CSimonColor(Button button, RGB rgb)
+    : button(button),
+      rgb(rgb)
+{
 }

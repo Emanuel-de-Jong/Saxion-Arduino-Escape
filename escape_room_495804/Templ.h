@@ -3,16 +3,17 @@
 
 #include <Arduino.h>
 
-class Templ {
-  private:
-    uint8_t pin;
+class Templ
+{
+private:
+  uint8_t pin;
 
-  public:
-    Templ(uint8_t pin);
+public:
+  Templ(uint8_t pin);
 
-    void setup();
+  void setup();
 
-    void func1();
+  void func1();
 };
 
 #endif

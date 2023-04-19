@@ -1,20 +1,25 @@
 #include "LEDKey.h"
 
-LEDKey::LEDKey(uint8_t strobePin, uint8_t clockPin, uint8_t dioPin) 
-: tm(strobePin, clockPin, dioPin) {
+LEDKey::LEDKey(uint8_t strobePin, uint8_t clockPin, uint8_t dioPin)
+    : tm(strobePin, clockPin, dioPin)
+{
 }
 
-void LEDKey::setup() {
+void LEDKey::setup()
+{
   tm.displayBegin();
 }
 
-int LEDKey::getPressedBtn() {
+int LEDKey::getPressedBtn()
+{
   uint8_t buttons = tm.readButtons();
-  for (int i = 0; i < 8; i++) {
-    if ((buttons >> i)  & 0x01) {
+  for (int i = 0; i < 8; i++)
+  {
+    if ((buttons >> i) & 0x01)
+    {
       return i;
     }
   }
-  
+
   return -1;
 }

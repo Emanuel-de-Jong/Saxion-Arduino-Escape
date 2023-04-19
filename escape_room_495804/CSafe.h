@@ -10,7 +10,8 @@
 
 #include "CSafeStage.h"
 
-class CSafe {
+class CSafe
+{
 private:
   Buzzer buzzer;
   Potmeter potmeter;
@@ -26,7 +27,7 @@ private:
 
 public:
   CSafe();
-  
+
   void setup();
   void loop();
 };

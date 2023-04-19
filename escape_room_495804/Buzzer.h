@@ -3,16 +3,17 @@
 
 #include <Arduino.h>
 
-class Buzzer {
-  private:
-    uint8_t pin;
+class Buzzer
+{
+private:
+  uint8_t pin;
 
-  public:
-    Buzzer(uint8_t pin);
+public:
+  Buzzer(uint8_t pin);
 
-    void setup();
+  void setup();
 
-    void buzz(int frequency, int duration);
+  void buzz(int frequency, int duration);
 };
 
 #endif

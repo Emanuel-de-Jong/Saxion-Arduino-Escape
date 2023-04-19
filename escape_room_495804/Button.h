@@ -3,20 +3,21 @@
 
 #include <Arduino.h>
 
-class Button {
-  private:
-    uint8_t pin = -1;
+class Button
+{
+private:
+  uint8_t pin = -1;
 
-  public:
-    Button();
-    Button(uint8_t pin);
+public:
+  Button();
+  Button(uint8_t pin);
 
-    void setup();
+  void setup();
 
-    bool isPressed();
-    int getPin() const;
+  bool isPressed();
+  int getPin() const;
 
-    bool operator==(const Button& button) const;
+  bool operator==(const Button &button) const;
 };
 
 #endif

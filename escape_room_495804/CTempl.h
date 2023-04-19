@@ -7,13 +7,14 @@
 
 #include "Templ.h"
 
-class CTempl {
+class CTempl
+{
 private:
   Templ templ;
 
 public:
   CTempl();
-  
+
   void setup();
   void loop();
 };

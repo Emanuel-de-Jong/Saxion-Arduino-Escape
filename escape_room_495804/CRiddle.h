@@ -9,7 +9,8 @@
 
 #include "LEDKey.h"
 
-class CRiddle {
+class CRiddle
+{
 private:
   LEDKey ledKey;
 
@@ -28,7 +29,7 @@ private:
 
 public:
   CRiddle();
-  
+
   void setup();
   void loop();
 };

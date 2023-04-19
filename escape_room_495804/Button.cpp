@@ -2,22 +2,27 @@
 
 Button::Button() {}
 
-Button::Button(uint8_t pin) 
-: pin(pin) {
+Button::Button(uint8_t pin)
+    : pin(pin)
+{
 }
 
-void Button::setup() {
+void Button::setup()
+{
   pinMode(pin, INPUT_PULLUP);
 }
 
-bool Button::isPressed() {
+bool Button::isPressed()
+{
   return !digitalRead(pin);
 }
 
-int Button::getPin() const {
+int Button::getPin() const
+{
   return pin;
 }
 
-bool Button::operator==(const Button& button) const {
+bool Button::operator==(const Button &button) const
+{
   return getPin() == button.getPin();
 }

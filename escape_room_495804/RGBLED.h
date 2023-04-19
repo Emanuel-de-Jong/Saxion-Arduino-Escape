@@ -7,29 +7,30 @@
 
 #include <LED.h>
 
-class RGBLED {
-  private:
-    LED ledRed;
-    LED ledGreen;
-    LED ledBlue;
+class RGBLED
+{
+private:
+  LED ledRed;
+  LED ledGreen;
+  LED ledBlue;
 
-    RGB &currentRGB;
+  RGB &currentRGB;
 
-  public:
-    RGB BLACK;
-    RGB WHITE;
-    RGB RED;
-    RGB GREEN;
-    RGB BLUE;
-    RGB YELLOW;
+public:
+  RGB BLACK;
+  RGB WHITE;
+  RGB RED;
+  RGB GREEN;
+  RGB BLUE;
+  RGB YELLOW;
 
-    RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin);
+  RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin);
 
-    void setup();
+  void setup();
 
-    void turnOn();
-    void turnOff();
-    void setColor(RGB rgb);
+  void turnOn();
+  void turnOff();
+  void setColor(RGB rgb);
 };
 
 #endif

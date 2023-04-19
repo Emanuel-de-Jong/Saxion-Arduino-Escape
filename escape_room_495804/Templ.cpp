@@ -1,13 +1,16 @@
 #include "Templ.h"
 
-Templ::Templ(uint8_t pin) 
-: pin(pin) {
+Templ::Templ(uint8_t pin)
+    : pin(pin)
+{
 }
 
-void Templ::setup() {
+void Templ::setup()
+{
   pinMode(pin, OUTPUT);
 }
 
-void Templ::func1() {
+void Templ::func1()
+{
   Serial.println("Templ::func1()");
 }

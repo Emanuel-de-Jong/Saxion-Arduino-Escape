@@ -3,16 +3,17 @@
 
 #include <Arduino.h>
 
-class Potmeter {
-  private:
-    uint8_t pin;
+class Potmeter
+{
+private:
+  uint8_t pin;
 
-  public:
-    Potmeter(uint8_t pin);
+public:
+  Potmeter(uint8_t pin);
 
-    void setup();
+  void setup();
 
-    int getValue();
+  int getValue();
 };
 
 #endif
