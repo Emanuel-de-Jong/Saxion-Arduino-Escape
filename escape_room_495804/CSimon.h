@@ -6,6 +6,7 @@
 #include "globals.h"
 
 #include "Button.h"
+#include "RGBLED.h"
 
 class CSimon {
 private:
@@ -13,6 +14,8 @@ private:
   Button buttonRed;
   Button buttonYellow;
   Button buttonBlue;
+
+  RGBLED rgbLED;
 
 public:
   CSimon();

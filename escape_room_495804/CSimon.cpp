@@ -4,16 +4,23 @@ CSimon::CSimon()
 : buttonGreen(CSIMON_BUTTON_GREEN_PIN),
 buttonRed(CSIMON_BUTTON_RED_PIN),
 buttonYellow(CSIMON_BUTTON_YELLOW_PIN),
-buttonBlue(CSIMON_BUTTON_BLUE_PIN) {
+buttonBlue(CSIMON_BUTTON_BLUE_PIN),
+rgbLED(
+  CSIMON_RGBLED_RED_PIN,
+  CSIMON_RGBLED_GREEN_PIN,
+  CSIMON_RGBLED_BLUE_PIN
+) {
 }
 
 void CSimon::setup() {
-  Serial.println("CTempl::setup()");
-  
   buttonGreen.setup();
   buttonRed.setup();
   buttonYellow.setup();
   buttonBlue.setup();
+
+  rgbLED.setup();
+
+  rgbLED.setColor(rgbLED.YELLOW);
 }
 
 void CSimon::loop() {
