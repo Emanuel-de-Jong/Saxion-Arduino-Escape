@@ -5,8 +5,10 @@ class CSafeStage {
 private:
   int rangeStart;
   int rangeEnd; 
+
 public:
   CSafeStage(int rangeStart, int rangeEnd);
+  
   bool isInRange(int value, int offset = 0);
 };
 

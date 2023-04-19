@@ -1,18 +1,18 @@
-#ifndef CTEMPL_H
-#define CTEMPL_H
+#ifndef CRIDDLE_H
+#define CRIDDLE_H
 
 #include <Arduino.h>
 
 #include "globals.h"
 
-#include "Templ.h"
+#include "LEDKey.h"
 
-class CTempl {
+class CRiddle {
 private:
-  Templ templ;
+  LEDKey ledKey;
 
 public:
-  CTempl();
+  CRiddle();
   
   void setup();
   void loop();
