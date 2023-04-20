@@ -31,6 +31,9 @@ private:
   const int USER_INPUT_TIME = 3 * 1000;
   int millisSinceUserInput = 0;
 
+  const int BUTTON_COOLDOWN_TIME = 1000;
+  int millisSinceButtonCooldown = 0;
+
   const int COLOR_TIME = 500;
   const int BLANK_TIME = 150;
   int millisSinceColorChange = 0;
@@ -47,7 +50,6 @@ private:
   void checkButtonInputValidity();
   void showSequence();
 
-  void blink(RGB color);
   void createRandomSequence();
   bool isAnyButtonPressed();
   bool isButtonPressedValid();

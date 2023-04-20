@@ -36,7 +36,8 @@ void CSimon::loop()
   if (isDone)
     return;
 
-  delay(20);
+  if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME) return;
+  millisSinceButtonCooldown = millis();
 
   checkButtonInput();
   showSequence();
@@ -137,14 +138,6 @@ void CSimon::showSequence()
       rgbLED.turnOff();
     }
   }
-}
-
-void CSimon::blink(RGB color)
-{
-  rgbLED.setColor(color);
-  delay(800);
-  rgbLED.turnOff();
-  delay(200);
 }
 
 void CSimon::createRandomSequence()
