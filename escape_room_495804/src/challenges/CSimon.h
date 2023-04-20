@@ -28,17 +28,17 @@ private:
   int sequenceStage = 1;
   int sequenceIndex = 0;
 
-  const int USER_INPUT_TIME = 3 * 1000;
+  const int USER_INPUT_TIME;
   int millisSinceUserInput = 0;
 
-  const int BUTTON_COOLDOWN_TIME = 1000;
+  const int BUTTON_COOLDOWN_TIME;
   int millisSinceButtonCooldown = 0;
 
-  const int COLOR_TIME = 500;
-  const int BLANK_TIME = 150;
+  const int COLOR_TIME;
+  const int BLANK_TIME;
   int millisSinceColorChange = 0;
 
-  const int COLOR_SEQUENCE_RESTART_TIME = 2500;
+  const int COLOR_SEQUENCE_RESTART_TIME;
   int millisSinceColorSequenceRestart = 0;
 
   bool isButtonPressed = false;

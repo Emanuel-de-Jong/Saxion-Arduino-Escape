@@ -21,9 +21,13 @@ private:
   int stageCount = 3;
 
   const int CHECK_RATE;
+  int millisSinceCheck = 0;
+
   const int COUNTDOWN_DURATION;
 
   int countdown;
+
+  bool isDone = false;
 
 public:
   CSafe();

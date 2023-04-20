@@ -22,10 +22,7 @@ void CSafe::setup()
 
 void CSafe::loop()
 {
-  if (currentStageIndex > stageCount - 1)
-  {
-    return;
-  }
+  if (isDone) return;
 
   CSafeStage stage = stages[currentStageIndex];
 
@@ -38,6 +35,11 @@ void CSafe::loop()
     if (countdown <= 0)
     {
       currentStageIndex++;
+      if (currentStageIndex + 1 > stageCount)
+      {
+        isDone = true;
+        return;
+      }
     }
   }
   else
