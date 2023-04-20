@@ -31,11 +31,11 @@ private:
   const int USER_INPUT_TIME = 3 * 1000;
   int millisSinceUserInput = 0;
 
-  const int COLOR_TIME = 800;
-  const int BLANK_TIME = 200;
+  const int COLOR_TIME = 500;
+  const int BLANK_TIME = 150;
   int millisSinceColorChange = 0;
 
-  const int COLOR_SEQUENCE_RESTART_TIME = 1500;
+  const int COLOR_SEQUENCE_RESTART_TIME = 2500;
   int millisSinceColorSequenceRestart = 0;
 
   bool isButtonPressed = false;

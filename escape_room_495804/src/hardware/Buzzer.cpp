@@ -8,6 +8,7 @@ Buzzer::Buzzer(uint8_t pin)
 void Buzzer::setup()
 {
   pinMode(pin, OUTPUT);
+  noTone(pin);
 }
 
 void Buzzer::buzz(int frequency, int duration)

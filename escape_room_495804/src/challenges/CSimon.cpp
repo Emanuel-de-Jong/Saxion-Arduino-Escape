@@ -35,6 +35,8 @@ void CSimon::loop()
 {
   if (isDone) return;
 
+  delay(20);
+
   if (isAnyButtonPressed()) {
     if (isStageChanged) return;
 
@@ -53,25 +55,27 @@ void CSimon::loop()
 
       if (sequenceIndex + 1 > sequenceStage) {
         sequenceIndex = 0;
-
         sequenceStage++;
-        if (sequenceStage > SEQUENCE_SIZE) {
-          isDone = true;
-          return;
-        }
 
         isStageChanged = true;
 
         rgbLED.setColor(rgbLED.GREEN);
         delay(200);
+        rgbLED.turnOff();
+
+        if (sequenceStage > SEQUENCE_SIZE) {
+          isDone = true;
+          return;
+        }
       }
     } else {
       createRandomSequence();
 
       isStageChanged = true;
-      
+
       rgbLED.setColor(rgbLED.RED);
       delay(200);
+      rgbLED.turnOff();
     }
   } else if (isButtonPressed) {
     isButtonPressed = false;
