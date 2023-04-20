@@ -21,10 +21,9 @@ CSimon::CSimon()
 
 void CSimon::setup()
 {
-  buttonGreen.setup();
-  buttonRed.setup();
-  buttonYellow.setup();
-  buttonBlue.setup();
+  for (Button button : buttons) {
+    button.setup();
+  }
 
   rgbLED.setup();
 

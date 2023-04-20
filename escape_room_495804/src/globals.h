@@ -25,4 +25,6 @@
 #define CREACTION_LED_2_PIN A2
 #define CREACTION_LED_3_PIN A3
 
+#define CREACTION_BUTTON_PIN 3
+
 #endif

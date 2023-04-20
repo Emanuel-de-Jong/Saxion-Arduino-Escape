@@ -6,6 +6,7 @@
 #include "src/globals.h"
 
 #include "src/hardware/LED.h"
+#include "src/hardware/Button.h"
 
 class CReaction
 {
@@ -13,6 +14,19 @@ private:
   LED led1;
   LED led2;
   LED led3;
+
+  Button button;
+
+  LED leds[3];
+  const int LED_COUNT = 3;
+  int ledIndex = 0;
+
+  int SPEED;
+  int millisSinceLEDOn = 0;
+
+  bool isLeftToRight = true;
+
+  void turnAllLEDsOff();
 
 public:
   CReaction();
