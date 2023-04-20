@@ -16,6 +16,9 @@ public:
   void turnOn();
   void turnOff();
   void setBrightness(int brightness);
+  int getPin() const;
+
+  bool operator==(const LED &led) const;
 };
 
 #endif

@@ -15,6 +15,8 @@ private:
   LED led2;
   LED led3;
 
+  LED &ledToHit;
+
   Button button;
 
   LED leds[3];

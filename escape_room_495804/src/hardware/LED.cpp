@@ -24,3 +24,13 @@ void LED::setBrightness(int brightness)
 {
   analogWrite(pin, brightness);
 }
+
+int LED::getPin() const
+{
+  return pin;
+}
+
+bool LED::operator==(const LED &led) const
+{
+  return getPin() == led.getPin();
+}

@@ -4,6 +4,7 @@ CReaction::CReaction()
     : led1(CREACTION_LED_1_PIN),
     led2(CREACTION_LED_2_PIN),
     led3(CREACTION_LED_3_PIN),
+    ledToHit(led2),
     button(CREACTION_BUTTON_PIN),
     leds{led1, led2, led3},
     SPEED(500)
@@ -22,14 +23,17 @@ void CReaction::setup()
 void CReaction::loop()
 {
   if (button.isPressed()) {
-    Serial.println("asd");
+    if (leds[ledIndex] == ledToHit) {
+      Serial.println("RIGHT");
+    } else {
+      Serial.println("WRONG");
+    }
+
+    delay(250);
   }
 
   if (millis() - millisSinceLEDOn > SPEED) {
     millisSinceLEDOn = millis();
-
-    turnAllLEDsOff();
-    leds[ledIndex].turnOn();
 
     if (isLeftToRight) {
       ledIndex++;
@@ -45,6 +49,9 @@ void CReaction::loop()
         isLeftToRight = true;
       }
     }
+
+    turnAllLEDsOff();
+    leds[ledIndex].turnOn();
   }
 
 }
