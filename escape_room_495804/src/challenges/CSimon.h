@@ -43,6 +43,10 @@ private:
   bool isStageChanged = false;
   bool isDone = false;
 
+  void checkButtonInput();
+  void checkButtonInputValidity();
+  void showSequence();
+
   void blink(RGB color);
   void createRandomSequence();
   bool isAnyButtonPressed();

@@ -2,18 +2,19 @@
 
 CReaction::CReaction()
     : led1(CREACTION_LED_1_PIN),
-    led2(CREACTION_LED_2_PIN),
-    led3(CREACTION_LED_3_PIN),
-    ledToHit(led2),
-    button(CREACTION_BUTTON_PIN),
-    leds{led1, led2, led3},
-    SPEED(500)
+      led2(CREACTION_LED_2_PIN),
+      led3(CREACTION_LED_3_PIN),
+      ledToHit(led2),
+      button(CREACTION_BUTTON_PIN),
+      leds{led1, led2, led3},
+      SPEED(500)
 {
 }
 
 void CReaction::setup()
 {
-  for (LED led : leds) {
+  for (LED led : leds)
+  {
     led.setup();
   }
 
@@ -22,18 +23,24 @@ void CReaction::setup()
 
 void CReaction::loop()
 {
-  if (isDone) return;
+  if (isDone)
+    return;
 
-  if (button.isPressed()) {
-    if (leds[ledIndex] == ledToHit) {
+  if (button.isPressed())
+  {
+    if (leds[ledIndex] == ledToHit)
+    {
       isDone = true;
 
       delay(1000);
       ledToHit.turnOff();
-      
+
       return;
-    } else {
-      for (int i = 0; i < 5; i++) {
+    }
+    else
+    {
+      for (int i = 0; i < 5; i++)
+      {
         leds[ledIndex].turnOff();
         delay(100);
 
@@ -43,19 +50,24 @@ void CReaction::loop()
     }
   }
 
-  if (millis() - millisSinceLEDOn > SPEED) {
+  if (millis() - millisSinceLEDOn > SPEED)
+  {
     millisSinceLEDOn = millis();
 
-    if (isLeftToRight) {
+    if (isLeftToRight)
+    {
       ledIndex++;
-      if (ledIndex + 1 > LED_COUNT) {
+      if (ledIndex + 1 > LED_COUNT)
+      {
         ledIndex = ledIndex - 2;
         isLeftToRight = false;
       }
-
-    } else {
+    }
+    else
+    {
       ledIndex--;
-      if (ledIndex == -1) {
+      if (ledIndex == -1)
+      {
         ledIndex = 1;
         isLeftToRight = true;
       }
@@ -64,11 +76,12 @@ void CReaction::loop()
     turnAllLEDsOff();
     leds[ledIndex].turnOn();
   }
-
 }
 
-void CReaction::turnAllLEDsOff() {
-  for (LED led : leds) {
+void CReaction::turnAllLEDsOff()
+{
+  for (LED led : leds)
+  {
     led.turnOff();
   }
 }

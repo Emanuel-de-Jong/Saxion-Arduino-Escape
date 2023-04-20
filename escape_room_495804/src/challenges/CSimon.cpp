@@ -21,7 +21,8 @@ CSimon::CSimon()
 
 void CSimon::setup()
 {
-  for (Button button : buttons) {
+  for (Button button : buttons)
+  {
     button.setup();
   }
 
@@ -32,81 +33,114 @@ void CSimon::setup()
 
 void CSimon::loop()
 {
-  if (isDone) return;
+  if (isDone)
+    return;
 
   delay(20);
 
-  if (isAnyButtonPressed()) {
-    if (isStageChanged) return;
+  checkButtonInput();
+  showSequence();
+}
 
-    if (isButtonPressed) return;
+void CSimon::checkButtonInput()
+{
+  if (isAnyButtonPressed())
+  {
+    if (isStageChanged)
+      return;
+
+    if (isButtonPressed)
+      return;
     isButtonPressed = true;
 
     millisSinceUserInput = millis();
 
-    if (!isUserInputting) {
+    if (!isUserInputting)
+    {
       isUserInputting = true;
       sequenceIndex = 0;
     }
 
-    if (isButtonPressedValid()) {
-      sequenceIndex++;
+    checkButtonInputValidity();
+  }
+  else if (isButtonPressed)
+  {
+    isButtonPressed = false;
+  }
+}
 
-      if (sequenceIndex + 1 > sequenceStage) {
-        sequenceIndex = 0;
-        sequenceStage++;
+void CSimon::checkButtonInputValidity()
+{
+  if (isButtonPressedValid())
+  {
+    sequenceIndex++;
 
-        isStageChanged = true;
-
-        rgbLED.setColor(rgbLED.GREEN);
-        delay(200);
-        rgbLED.turnOff();
-
-        if (sequenceStage > SEQUENCE_SIZE) {
-          isDone = true;
-          return;
-        }
-      }
-    } else {
-      createRandomSequence();
+    if (sequenceIndex + 1 > sequenceStage)
+    {
+      sequenceIndex = 0;
+      sequenceStage++;
 
       isStageChanged = true;
 
-      rgbLED.setColor(rgbLED.RED);
+      rgbLED.setColor(rgbLED.GREEN);
       delay(200);
       rgbLED.turnOff();
-    }
-  } else if (isButtonPressed) {
-    isButtonPressed = false;
-  }
 
-  if (millis() - millisSinceUserInput > USER_INPUT_TIME) {
-    if (isUserInputting) {
+      if (sequenceStage > SEQUENCE_SIZE)
+      {
+        isDone = true;
+        return;
+      }
+    }
+  }
+  else
+  {
+    createRandomSequence();
+
+    isStageChanged = true;
+
+    rgbLED.setColor(rgbLED.RED);
+    delay(200);
+    rgbLED.turnOff();
+  }
+}
+
+void CSimon::showSequence()
+{
+  if (millis() - millisSinceUserInput > USER_INPUT_TIME)
+  {
+    if (isUserInputting)
+    {
       isUserInputting = false;
 
       isStageChanged = false;
       sequenceIndex = 0;
     }
 
-    if (millis() - millisSinceColorChange > COLOR_TIME + BLANK_TIME) {
-      if (millis() - millisSinceColorSequenceRestart <= COLOR_SEQUENCE_RESTART_TIME) return;
+    if (millis() - millisSinceColorChange > COLOR_TIME + BLANK_TIME)
+    {
+      if (millis() - millisSinceColorSequenceRestart <= COLOR_SEQUENCE_RESTART_TIME)
+        return;
 
       rgbLED.setColor(sequence[sequenceIndex].rgb);
       millisSinceColorChange = millis();
 
       sequenceIndex++;
-      if (sequenceIndex + 1 > sequenceStage) {
+      if (sequenceIndex + 1 > sequenceStage)
+      {
         sequenceIndex = 0;
         millisSinceColorSequenceRestart = millis();
       }
     }
-    else if (millis() - millisSinceColorChange > COLOR_TIME) {
+    else if (millis() - millisSinceColorChange > COLOR_TIME)
+    {
       rgbLED.turnOff();
     }
   }
 }
 
-void CSimon::blink(RGB color) {
+void CSimon::blink(RGB color)
+{
   rgbLED.setColor(color);
   delay(800);
   rgbLED.turnOff();
