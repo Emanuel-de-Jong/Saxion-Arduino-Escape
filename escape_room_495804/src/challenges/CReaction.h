@@ -27,6 +27,7 @@ private:
   int millisSinceLEDOn = 0;
 
   bool isLeftToRight = true;
+  bool isDone = false;
 
   void turnAllLEDsOff();
 

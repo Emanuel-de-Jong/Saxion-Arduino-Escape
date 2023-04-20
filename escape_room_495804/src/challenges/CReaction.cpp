@@ -22,14 +22,25 @@ void CReaction::setup()
 
 void CReaction::loop()
 {
+  if (isDone) return;
+
   if (button.isPressed()) {
     if (leds[ledIndex] == ledToHit) {
-      Serial.println("RIGHT");
-    } else {
-      Serial.println("WRONG");
-    }
+      isDone = true;
 
-    delay(250);
+      delay(1000);
+      ledToHit.turnOff();
+      
+      return;
+    } else {
+      for (int i = 0; i < 5; i++) {
+        leds[ledIndex].turnOff();
+        delay(100);
+
+        leds[ledIndex].turnOn();
+        delay(100);
+      }
+    }
   }
 
   if (millis() - millisSinceLEDOn > SPEED) {
