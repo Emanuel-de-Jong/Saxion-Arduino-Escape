@@ -32,9 +32,15 @@ private:
   int millisSinceUserInput = 0;
 
   const int COLOR_TIME = 800;
+  const int BLANK_TIME = 200;
   int millisSinceColorChange = 0;
 
+  const int COLOR_SEQUENCE_RESTART_TIME = 1500;
+  int millisSinceColorSequenceRestart = 0;
+
+  bool isButtonPressed = false;
   bool isUserInputting = false;
+  bool isStageChanged = false;
   bool isDone = false;
 
   void blink(RGB color);

@@ -11,8 +11,8 @@ CSimon::CSimon()
           CSIMON_RGBLED_GREEN_PIN,
           CSIMON_RGBLED_BLUE_PIN),
       simonColors{
-          CSimonColor(buttonGreen, rgbLED.GREEN),
-          CSimonColor(buttonRed, rgbLED.RED),
+          CSimonColor(buttonGreen, rgbLED.DARK_GREEN),
+          CSimonColor(buttonRed, rgbLED.DARK_RED),
           CSimonColor(buttonYellow, rgbLED.YELLOW),
           CSimonColor(buttonBlue, rgbLED.BLUE),
       }
@@ -36,6 +36,11 @@ void CSimon::loop()
   if (isDone) return;
 
   if (isAnyButtonPressed()) {
+    if (isStageChanged) return;
+
+    if (isButtonPressed) return;
+    isButtonPressed = true;
+
     millisSinceUserInput = millis();
 
     if (!isUserInputting) {
@@ -47,33 +52,53 @@ void CSimon::loop()
       sequenceIndex++;
 
       if (sequenceIndex + 1 > sequenceStage) {
-        sequenceStage++;
         sequenceIndex = 0;
 
+        sequenceStage++;
         if (sequenceStage > SEQUENCE_SIZE) {
           isDone = true;
+          return;
         }
+
+        isStageChanged = true;
+
+        rgbLED.setColor(rgbLED.GREEN);
+        delay(200);
       }
     } else {
-      sequenceStage = 1;
-      sequenceIndex = 0;
+      createRandomSequence();
+
+      isStageChanged = true;
+      
+      rgbLED.setColor(rgbLED.RED);
+      delay(200);
     }
+  } else if (isButtonPressed) {
+    isButtonPressed = false;
   }
 
   if (millis() - millisSinceUserInput > USER_INPUT_TIME) {
     if (isUserInputting) {
       isUserInputting = false;
+
+      isStageChanged = false;
       sequenceIndex = 0;
     }
 
-    RGB color = sequence[sequenceIndex].rgb;
-    blink(color);
+    if (millis() - millisSinceColorChange > COLOR_TIME + BLANK_TIME) {
+      if (millis() - millisSinceColorSequenceRestart <= COLOR_SEQUENCE_RESTART_TIME) return;
 
-    sequenceIndex++;
-    if (sequenceIndex + 1 > sequenceStage) {
-      sequenceIndex = 0;
+      rgbLED.setColor(sequence[sequenceIndex].rgb);
+      millisSinceColorChange = millis();
 
-      delay(1500);
+      sequenceIndex++;
+      if (sequenceIndex + 1 > sequenceStage) {
+        sequenceIndex = 0;
+        millisSinceColorSequenceRestart = millis();
+      }
+    }
+    else if (millis() - millisSinceColorChange > COLOR_TIME) {
+      rgbLED.turnOff();
     }
   }
 }

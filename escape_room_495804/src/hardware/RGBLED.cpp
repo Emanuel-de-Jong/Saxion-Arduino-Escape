@@ -6,8 +6,10 @@ RGBLED::RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin)
       ledBlue(ledBluePin),
       BLACK(0, 0, 0),
       WHITE(255, 255, 255),
-      RED(255, 0, 0),
-      GREEN(0, 255, 0),
+      RED(255, 100, 100),
+      DARK_RED(200, 0, 0),
+      GREEN(100, 255, 100),
+      DARK_GREEN(0, 200, 0),
       BLUE(0, 0, 255),
       YELLOW(255, 255, 0),
       currentRGB(BLACK)
