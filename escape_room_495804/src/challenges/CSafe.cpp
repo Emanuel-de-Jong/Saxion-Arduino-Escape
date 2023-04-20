@@ -9,7 +9,7 @@ CSafe::CSafe()
           CSafeStage(325, 350),
       },
       CHECK_RATE(100),
-      COUNTDOWN_DURATION(2 * 1000),
+      COUNTDOWN_DURATION(1500),
       countdown(COUNTDOWN_DURATION)
 {
 }
@@ -23,6 +23,9 @@ void CSafe::setup()
 void CSafe::loop()
 {
   if (isDone) return;
+
+  if (millis() - millisSinceCheck <= CHECK_RATE) return;
+  millisSinceCheck = millis();
 
   CSafeStage stage = stages[currentStageIndex];
 
@@ -55,6 +58,4 @@ void CSafe::loop()
 
     countdown = COUNTDOWN_DURATION;
   }
-
-  delay(CHECK_RATE);
 }
