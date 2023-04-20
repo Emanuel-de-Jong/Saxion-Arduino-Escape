@@ -25,18 +25,28 @@ private:
   CSimonColor sequence[4];
 
   const int SEQUENCE_SIZE = 4;
+  int sequenceStage = 1;
   int sequenceIndex = 0;
 
+  const int USER_INPUT_TIME = 3 * 1000;
+  int millisSinceUserInput = 0;
+
+  const int COLOR_TIME = 800;
+  int millisSinceColorChange = 0;
+
+  bool isUserInputting = false;
+  bool isDone = false;
+
+  void blink(RGB color);
   void createRandomSequence();
+  bool isAnyButtonPressed();
+  bool isButtonPressedValid();
 
 public:
   CSimon();
 
   void setup();
   void loop();
-
-  bool isAnyButtonPressed();
-  bool isButtonPressedValid();
 };
 
 #endif

@@ -29,37 +29,65 @@ void CSimon::setup()
   rgbLED.setup();
 
   createRandomSequence();
-
-  rgbLED.setColor(sequence[sequenceIndex].rgb);
 }
 
 void CSimon::loop()
 {
-  if (!isAnyButtonPressed())
-    return;
+  if (isDone) return;
 
-  if (isButtonPressedValid())
-  {
-    sequenceIndex++;
-    if (sequenceIndex > (SEQUENCE_SIZE - 1))
-    {
-      Serial.println("Complete");
-      createRandomSequence();
+  if (isAnyButtonPressed()) {
+    millisSinceUserInput = millis();
+
+    if (!isUserInputting) {
+      isUserInputting = true;
+      sequenceIndex = 0;
     }
 
-    rgbLED.setColor(sequence[sequenceIndex].rgb);
+    if (isButtonPressedValid()) {
+      sequenceIndex++;
 
-    Serial.println("Right");
-    delay(250);
+      if (sequenceIndex + 1 > sequenceStage) {
+        sequenceStage++;
+        sequenceIndex = 0;
+
+        if (sequenceStage > SEQUENCE_SIZE) {
+          isDone = true;
+        }
+      }
+    } else {
+      sequenceStage = 1;
+      sequenceIndex = 0;
+    }
   }
-  else
-  {
-    Serial.println("Wrong");
+
+  if (millis() - millisSinceUserInput > USER_INPUT_TIME) {
+    if (isUserInputting) {
+      isUserInputting = false;
+      sequenceIndex = 0;
+    }
+
+    RGB color = sequence[sequenceIndex].rgb;
+    blink(color);
+
+    sequenceIndex++;
+    if (sequenceIndex + 1 > sequenceStage) {
+      sequenceIndex = 0;
+
+      delay(1500);
+    }
   }
+}
+
+void CSimon::blink(RGB color) {
+  rgbLED.setColor(color);
+  delay(800);
+  rgbLED.turnOff();
+  delay(200);
 }
 
 void CSimon::createRandomSequence()
 {
+  sequenceStage = 1;
   sequenceIndex = 0;
 
   // Give rand uptime as the seed to always get different random numbers
