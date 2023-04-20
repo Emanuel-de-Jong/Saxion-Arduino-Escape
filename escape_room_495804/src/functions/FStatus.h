@@ -20,6 +20,9 @@ private:
       false,
       false};
 
+  const int REFRESH_RATE;
+  int millisSinceRefresh = 0;
+
   byte uncheckedChar[8] = {
       B00000,
       B00000,

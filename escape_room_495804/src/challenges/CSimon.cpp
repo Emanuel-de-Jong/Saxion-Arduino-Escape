@@ -41,7 +41,8 @@ void CSimon::loop()
   if (isDone)
     return;
 
-  if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME) return;
+  if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME)
+    return;
   millisSinceButtonCooldown = millis();
 
   checkButtonInput();

@@ -30,8 +30,8 @@ void loop()
 {
   // fStatus.loop();
 
-  cSafe.loop();
-  // cRiddle.loop();
+  // cSafe.loop();
+  cRiddle.loop();
   // cSimon.loop();
   // cReaction.loop();
 }

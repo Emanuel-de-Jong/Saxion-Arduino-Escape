@@ -22,9 +22,11 @@ void CSafe::setup()
 
 void CSafe::loop()
 {
-  if (isDone) return;
+  if (isDone)
+    return;
 
-  if (millis() - millisSinceCheck <= CHECK_RATE) return;
+  if (millis() - millisSinceCheck <= CHECK_RATE)
+    return;
   millisSinceCheck = millis();
 
   CSafeStage stage = stages[currentStageIndex];

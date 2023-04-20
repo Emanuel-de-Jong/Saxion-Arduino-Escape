@@ -29,9 +29,11 @@ void CRiddle::setup()
 
 void CRiddle::loop()
 {
-  if (isDone) return;
+  if (isDone)
+    return;
 
-  if (millis() - millisSinceWrite <= WRITE_RATE) return;
+  if (millis() - millisSinceWrite <= WRITE_RATE)
+    return;
   millisSinceWrite = millis();
 
   int btn = ledKey.getPressedBtn();

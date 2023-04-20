@@ -1,7 +1,8 @@
 #include "src/functions/FStatus.h"
 
 FStatus::FStatus()
-    : SOLVE_TIME(5 * 60)
+    : SOLVE_TIME(5 * 60),
+      REFRESH_RATE(500)
 {
 }
 
@@ -21,13 +22,15 @@ void FStatus::setup()
 
 void FStatus::loop()
 {
+  if (millis() - millisSinceRefresh <= REFRESH_RATE)
+    return;
+  millisSinceRefresh = millis();
+
   lcd.i2c.clear();
   lcd.i2c.home();
 
   printTime();
   printChallenges();
-
-  delay(1000);
 }
 
 void FStatus::printTime()
