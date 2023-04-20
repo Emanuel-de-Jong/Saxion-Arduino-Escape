@@ -22,10 +22,15 @@ private:
 
   int leftDisplay;
 
+  const int WRITE_RATE;
+  int millisSinceWrite = 0;
+
   int stage = 0;
 
   int lastBtn = -1;
   int consecutiveBtnPressed = 1;
+
+  bool isDone = false;
 
 public:
   CRiddle();

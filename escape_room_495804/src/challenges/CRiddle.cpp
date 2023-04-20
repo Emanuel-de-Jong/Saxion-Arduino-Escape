@@ -13,7 +13,8 @@ CRiddle::CRiddle()
           std::to_string(NUM_1) +
           std::to_string(BTN_1_PRESSES) +
           std::to_string(NUM_2) +
-          std::to_string(BTN_2_PRESSES)))
+          std::to_string(BTN_2_PRESSES))),
+      WRITE_RATE(250)
 {
 }
 
@@ -28,6 +29,11 @@ void CRiddle::setup()
 
 void CRiddle::loop()
 {
+  if (isDone) return;
+
+  if (millis() - millisSinceWrite <= WRITE_RATE) return;
+  millisSinceWrite = millis();
+
   int btn = ledKey.getPressedBtn();
   if (btn == -1)
     return;
@@ -60,8 +66,9 @@ void CRiddle::loop()
     else
     {
       ledKey.tm.setLEDs(0b0000000000000000);
+
+      isDone = true;
+      return;
     }
   }
-
-  delay(250);
 }
