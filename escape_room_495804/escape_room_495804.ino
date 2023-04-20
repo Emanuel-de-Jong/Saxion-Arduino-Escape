@@ -5,12 +5,14 @@
 #include "src/challenges/CSafe.h"
 #include "src/challenges/CRiddle.h"
 #include "src/challenges/CSimon.h"
+#include "src/challenges/CReaction.h"
 
 FStatus fStatus;
 
 CSafe cSafe;
 CRiddle cRiddle;
 CSimon cSimon;
+CReaction cReaction;
 
 void setup()
 {
@@ -21,6 +23,7 @@ void setup()
   cSafe.setup();
   cRiddle.setup();
   cSimon.setup();
+  cReaction.setup();
 }
 
 void loop()
@@ -29,5 +32,6 @@ void loop()
 
   // cSafe.loop();
   // cRiddle.loop();
-  cSimon.loop();
+  // cSimon.loop();
+  cReaction.loop();
 }
