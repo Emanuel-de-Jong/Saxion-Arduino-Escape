@@ -4,7 +4,7 @@
 ## Introductie
 De escape room heeft 4 challenges en een LCD scherm waar je je status kan zien. De bedoeling is om de challenges binnen de gegeven tijd te halen.
 Als je een challenge hebt gehaald, hoor je een kort geluidje. Dus als je denkt dat je klaar bent maar niets hebt gehoord zit er waarschijnlijk meer achter.
-De volgorde waarop je de challenges doet maakt niet uit.
+De volgorde waarop je de challenges doet, maakt niet uit.
 
 -----
 
@@ -21,7 +21,7 @@ Onder zie je de challenges en of je ze gehaald hebt. Het is in de volgorde:
 - Challenge 4: Reation time
 - Challenge 4 check
 
-Op de foto zijn de eeste 2 checks ingevuld, dit laat zien dat ze gehaald zijn. Challenge 3 en 4 moeten nog.
+Op de foto zijn de eerste 2 checks ingevuld, dit laat zien dat ze gehaald zijn. Challenge 3 en 4 moeten nog.
 
 ### Win
 <img src="imgs/instructies/3.2%20Win.jpg" width="400px"></img><br>
@@ -41,7 +41,7 @@ Het doel is om de knop op de juiste positie te krijgen. Bij het draaien aan de k
 
 <details>
     <summary>Oplossing</summary>
-    Hoe hoger de toon deste dichter je bij het goede punt bent. Blijf een tijdje op de derde toon om verder te gaan. Dit doe je 3 keer met een steeds hogere precisie.
+    Hoe hoger de toon hoe dichter je bij het goede punt bent. Blijf een tijdje op de derde toon om verder te gaan. Dit doe je 3 keer met een steeds hogere precisie.
 </details>
 
 ## Challenge 2: Riddle
@@ -59,4 +59,4 @@ Herhaal met de knoppen de reeks kleuren van het licht. Dit doe je 4 keer. Maar e
 
 ## Challenge 4: Reation Time
 <img src="imgs/instructies/2.4%20Reaction%20time.jpg" width="400px"></img><br>
-Test je ractie snelheid. De lichtjes gaan steeds heen en weer. Druk snel op de knop als het groene lichtje brand.
+Test je reactie snelheid. De lichtjes gaan steeds heen en weer. Druk snel op de knop als het groene lichtje brand.
