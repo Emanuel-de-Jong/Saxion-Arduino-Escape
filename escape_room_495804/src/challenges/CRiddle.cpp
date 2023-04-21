@@ -1,8 +1,7 @@
 #include "src/challenges/CRiddle.h"
 
 CRiddle::CRiddle()
-    : CHALLENGE_ID(1),
-      ledKey(
+    : ledKey(
           CRIDDLE_LEDKEY_STROBE_PIN,
           CRIDDLE_LEDKEY_CLOCK_PIN,
           CRIDDLE_LEDKEY_DIO_PIN),
@@ -17,6 +16,7 @@ CRiddle::CRiddle()
           std::to_string(BTN_2_PRESSES))),
       BUTTON_COOLDOWN_TIME(20)
 {
+  setChallengeId(1);
 }
 
 void CRiddle::setup()
@@ -30,7 +30,7 @@ void CRiddle::setup()
 
 void CRiddle::loop()
 {
-  if (isDone)
+  if (getIsDone())
     return;
 
   if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME)
@@ -75,20 +75,8 @@ void CRiddle::loop()
     {
       ledKey.tm.setLEDs(0b0000000000000000);
 
-      isDone = true;
+      setIsDone(true);
       return;
     }
   }
-}
-
-int CRiddle::getChallengeId() {
-  return CHALLENGE_ID;
-}
-
-bool CRiddle::getIsDone() {
-  return isDone;
-}
-
-void CRiddle::setIsDone(bool val) {
-  isDone = val;
 }

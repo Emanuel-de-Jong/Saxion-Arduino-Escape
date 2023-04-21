@@ -5,16 +5,16 @@
 
 #include "src/globals.h"
 
+#include "src/challenges/Challenge.h"
+
 #include "src/hardware/Button.h"
 #include "src/hardware/RGBLED.h"
 
 #include "src/challenges/CSimonColor.h"
 
-class CSimon
+class CSimon : public Challenge
 {
 private:
-  const int CHALLENGE_ID;
-
   Button buttonGreen;
   Button buttonRed;
   Button buttonYellow;
@@ -46,7 +46,6 @@ private:
   bool isButtonPressed = false;
   bool isUserInputting = false;
   bool isStageChanged = false;
-  bool isDone = false;
 
   void checkButtonInput();
   void checkButtonInputValidity();
@@ -61,10 +60,6 @@ public:
 
   void setup();
   void loop();
-
-  int getChallengeId();
-  bool getIsDone();
-  void setIsDone(bool val);
 };
 
 #endif

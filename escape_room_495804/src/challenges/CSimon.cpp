@@ -1,8 +1,7 @@
 #include "src/challenges/CSimon.h"
 
 CSimon::CSimon()
-    : CHALLENGE_ID(2),
-      buttonGreen(CSIMON_BUTTON_GREEN_PIN),
+    : buttonGreen(CSIMON_BUTTON_GREEN_PIN),
       buttonRed(CSIMON_BUTTON_RED_PIN),
       buttonYellow(CSIMON_BUTTON_YELLOW_PIN),
       buttonBlue(CSIMON_BUTTON_BLUE_PIN),
@@ -23,6 +22,7 @@ CSimon::CSimon()
       BLANK_TIME(150),
       COLOR_SEQUENCE_RESTART_TIME(2500)
 {
+  setChallengeId(2);
 }
 
 void CSimon::setup()
@@ -39,7 +39,7 @@ void CSimon::setup()
 
 void CSimon::loop()
 {
-  if (isDone)
+  if (getIsDone())
     return;
 
   if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME)
@@ -96,7 +96,7 @@ void CSimon::checkButtonInputValidity()
 
       if (sequenceStage > SEQUENCE_SIZE)
       {
-        isDone = true;
+        setIsDone(true);
         return;
       }
     }
@@ -185,16 +185,4 @@ bool CSimon::isButtonPressedValid()
   }
 
   return true;
-}
-
-int CSimon::getChallengeId() {
-  return CHALLENGE_ID;
-}
-
-bool CSimon::getIsDone() {
-  return isDone;
-}
-
-void CSimon::setIsDone(bool val) {
-  isDone = val;
 }

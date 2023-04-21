@@ -5,16 +5,16 @@
 
 #include "src/globals.h"
 
+#include "src/challenges/Challenge.h"
+
 #include "src/hardware/Buzzer.h"
 #include "src/hardware/Potmeter.h"
 
 #include "src/challenges/CSafeStage.h"
 
-class CSafe
+class CSafe : public Challenge
 {
 private:
-  const int CHALLENGE_ID;
-
   Buzzer buzzer;
   Potmeter potmeter;
 
@@ -29,17 +29,11 @@ private:
 
   int countdown;
 
-  bool isDone = false;
-
 public:
   CSafe();
 
   void setup();
   void loop();
-
-  int getChallengeId();
-  bool getIsDone();
-  void setIsDone(bool val);
 };
 
 #endif

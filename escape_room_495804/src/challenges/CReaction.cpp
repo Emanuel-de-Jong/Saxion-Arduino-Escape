@@ -1,8 +1,7 @@
 #include "src/challenges/CReaction.h"
 
 CReaction::CReaction()
-    : CHALLENGE_ID(3),
-      led1(CREACTION_LED_1_PIN),
+    : led1(CREACTION_LED_1_PIN),
       led2(CREACTION_LED_2_PIN),
       led3(CREACTION_LED_3_PIN),
       ledToHit(led2),
@@ -10,6 +9,7 @@ CReaction::CReaction()
       leds{led1, led2, led3},
       SPEED(500)
 {
+  setChallengeId(3);
 }
 
 void CReaction::setup()
@@ -24,14 +24,14 @@ void CReaction::setup()
 
 void CReaction::loop()
 {
-  if (isDone)
+  if (getIsDone())
     return;
 
   if (button.isPressed())
   {
     if (leds[ledIndex] == ledToHit)
     {
-      isDone = true;
+      setIsDone(true);
 
       delay(1000);
       ledToHit.turnOff();
@@ -85,16 +85,4 @@ void CReaction::turnAllLEDsOff()
   {
     led.turnOff();
   }
-}
-
-int CReaction::getChallengeId() {
-  return CHALLENGE_ID;
-}
-
-bool CReaction::getIsDone() {
-  return isDone;
-}
-
-void CReaction::setIsDone(bool val) {
-  isDone = val;
 }

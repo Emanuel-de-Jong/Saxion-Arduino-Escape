@@ -1,8 +1,7 @@
 #include "src/challenges/CSafe.h"
 
 CSafe::CSafe()
-    : CHALLENGE_ID(0),
-      buzzer(CSAFE_BUZZER_PIN),
+    : buzzer(CSAFE_BUZZER_PIN),
       potmeter(CSAFE_POTMETER_PIN),
       stages{
           CSafeStage(250, 350),
@@ -13,6 +12,7 @@ CSafe::CSafe()
       COUNTDOWN_DURATION(1500),
       countdown(COUNTDOWN_DURATION)
 {
+  setChallengeId(0);
 }
 
 void CSafe::setup()
@@ -23,7 +23,7 @@ void CSafe::setup()
 
 void CSafe::loop()
 {
-  if (isDone)
+  if (getIsDone())
     return;
 
   if (millis() - millisSinceCheck <= CHECK_RATE)
@@ -43,7 +43,7 @@ void CSafe::loop()
       currentStageIndex++;
       if (currentStageIndex + 1 > stageCount)
       {
-        isDone = true;
+        setIsDone(true);
         return;
       }
     }
@@ -61,16 +61,4 @@ void CSafe::loop()
 
     countdown = COUNTDOWN_DURATION;
   }
-}
-
-int CSafe::getChallengeId() {
-  return CHALLENGE_ID;
-}
-
-bool CSafe::getIsDone() {
-  return isDone;
-}
-
-void CSafe::setIsDone(bool val) {
-  isDone = val;
 }

@@ -7,13 +7,13 @@
 
 #include "src/globals.h"
 
+#include "src/challenges/Challenge.h"
+
 #include "src/hardware/LEDKey.h"
 
-class CRiddle
+class CRiddle : public Challenge
 {
 private:
-  const int CHALLENGE_ID;
-
   LEDKey ledKey;
 
   const int NUM_1;
@@ -34,17 +34,11 @@ private:
   int lastBtn = -1;
   int consecutiveBtnPressed = 1;
 
-  bool isDone = false;
-
 public:
   CRiddle();
 
   void setup();
   void loop();
-
-  int getChallengeId();
-  bool getIsDone();
-  void setIsDone(bool val);
 };
 
 #endif
