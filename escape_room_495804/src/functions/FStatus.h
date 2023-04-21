@@ -25,6 +25,11 @@ private:
 
   const int CHALLENGE_COUNT = 4;
   Challenge *challenges[4];
+  bool challengeStatuses[4] = {
+      false,
+      false,
+      false,
+      false};
 
   const int REFRESH_RATE;
   int millisSinceRefresh = 0;
@@ -97,7 +102,9 @@ private:
   int getTimeRemaining();
   void printTime();
   void printChallenges();
+  void updateChallengeStatuses();
   bool areAllChallengesDone();
+  void execChallengeDone();
   void execWin();
   void execLoss();
   void disableChallenges();
