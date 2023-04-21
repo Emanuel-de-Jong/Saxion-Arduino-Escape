@@ -1,4 +1,8 @@
 # Hardware
+Alle ground is met elkaar verbonden. De lijnen voor 5V (boven) en 3.3V (onder) zijn op de bovenste breadboard te vinden.
+De knoppen voor Simon Says en Reaction Time zijn niet verbonden aan 3.3V om kabels te besparen.
+De data kabels voor alle challenges behalven Simon Says hebben een extensie via de bovenste breadboard omdat ze anders te kort of krap zouden zijn.
+Je hebt misschien gezien dat er bij Reaction Time wat extra kabels zijn. Het was de bedoeling dat er 5 LEDS zouden zijn. Helaas had ik niet genoeg 220 ohm resistors en heb ik tot nu toe nog geen kunnen vinden.
 
 ## Fotos
 <img src="imgs/hardware/1.1%20Top.jpg" width="800px"></img><br>
