@@ -7,11 +7,7 @@
 
 #include "src/globals.h"
 
-#include "src/functions/FStatus.h"
-
 #include "src/hardware/LEDKey.h"
-
-extern FStatus fStatus;
 
 class CRiddle
 {
@@ -47,6 +43,8 @@ public:
   void loop();
 
   int getChallengeId();
+  bool getIsDone();
+  void setIsDone(bool val);
 };
 
 #endif

@@ -5,14 +5,10 @@
 
 #include "src/globals.h"
 
-#include "src/functions/FStatus.h"
-
 #include "src/hardware/Button.h"
 #include "src/hardware/RGBLED.h"
 
 #include "src/challenges/CSimonColor.h"
-
-extern FStatus fStatus;
 
 class CSimon
 {
@@ -67,6 +63,8 @@ public:
   void loop();
 
   int getChallengeId();
+  bool getIsDone();
+  void setIsDone(bool val);
 };
 
 #endif

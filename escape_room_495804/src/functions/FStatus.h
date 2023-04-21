@@ -5,7 +5,17 @@
 
 #include "src/globals.h"
 
+#include "src/challenges/CSafe.h"
+#include "src/challenges/CRiddle.h"
+#include "src/challenges/CSimon.h"
+#include "src/challenges/CReaction.h"
+
 #include "src/hardware/LCD.h"
+
+extern CSafe cSafe;
+extern CRiddle cRiddle;
+extern CSimon cSimon;
+extern CReaction cReaction;
 
 class FStatus
 {
@@ -15,7 +25,7 @@ private:
   const int SOLVE_TIME;
 
   const int CHALLENGE_COUNT = 4;
-  bool challenges[4] = {
+  bool challengeStatuses[4] = {
       false,
       false,
       false,
@@ -88,6 +98,7 @@ private:
 
   void printTime();
   void printChallenges();
+  void updateChallengeStatuses();
   bool areAllChallengesDone();
 
 public:
@@ -95,8 +106,6 @@ public:
 
   void setup();
   void loop();
-
-  void setChallengeDone(int challengeId);
 };
 
 #endif

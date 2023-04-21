@@ -26,6 +26,8 @@ void FStatus::loop()
     return;
   millisSinceRefresh = millis();
 
+  updateChallengeStatuses();
+
   lcd.i2c.clear();
   lcd.i2c.home();
 
@@ -48,20 +50,23 @@ void FStatus::printChallenges()
 
   for (int i = 0; i < CHALLENGE_COUNT; i++) {
     lcd.i2c.write(i);
-    lcd.i2c.write(challenges[i] ? 7 : 6);
+    lcd.i2c.write(challengeStatuses[i] ? 7 : 6);
   }
 }
 
+void FStatus::updateChallengeStatuses() {
+  challengeStatuses[cSafe.getChallengeId()] = cSafe.getIsDone();
+  challengeStatuses[cRiddle.getChallengeId()] = cRiddle.getIsDone();
+  challengeStatuses[cSimon.getChallengeId()] = cSimon.getIsDone();
+  challengeStatuses[cReaction.getChallengeId()] = cReaction.getIsDone();
+}
+
 bool FStatus::areAllChallengesDone() {
-  for (bool isDone : challenges) {
+  for (bool isDone : challengeStatuses) {
     if (!isDone) {
       return false;
     }
   }
 
   return true;
-}
-
-void FStatus::setChallengeDone(int challengeId) {
-  challenges[challengeId] = true;
 }

@@ -76,7 +76,6 @@ void CRiddle::loop()
       ledKey.tm.setLEDs(0b0000000000000000);
 
       isDone = true;
-      fStatus.setChallengeDone(CHALLENGE_ID);
       return;
     }
   }
@@ -84,4 +83,12 @@ void CRiddle::loop()
 
 int CRiddle::getChallengeId() {
   return CHALLENGE_ID;
+}
+
+bool CRiddle::getIsDone() {
+  return isDone;
+}
+
+void CRiddle::setIsDone(bool val) {
+  isDone = val;
 }

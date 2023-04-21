@@ -97,7 +97,6 @@ void CSimon::checkButtonInputValidity()
       if (sequenceStage > SEQUENCE_SIZE)
       {
         isDone = true;
-        fStatus.setChallengeDone(CHALLENGE_ID);
         return;
       }
     }
@@ -190,4 +189,12 @@ bool CSimon::isButtonPressedValid()
 
 int CSimon::getChallengeId() {
   return CHALLENGE_ID;
+}
+
+bool CSimon::getIsDone() {
+  return isDone;
+}
+
+void CSimon::setIsDone(bool val) {
+  isDone = val;
 }
