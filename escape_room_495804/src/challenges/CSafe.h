@@ -5,10 +5,14 @@
 
 #include "src/globals.h"
 
+#include "src/functions/FStatus.h"
+
 #include "src/hardware/Buzzer.h"
 #include "src/hardware/Potmeter.h"
 
 #include "src/challenges/CSafeStage.h"
+
+extern FStatus fStatus;
 
 class CSafe
 {

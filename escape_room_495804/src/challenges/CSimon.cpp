@@ -97,6 +97,7 @@ void CSimon::checkButtonInputValidity()
       if (sequenceStage > SEQUENCE_SIZE)
       {
         isDone = true;
+        fStatus.setChallengeDone(CHALLENGE_ID);
         return;
       }
     }

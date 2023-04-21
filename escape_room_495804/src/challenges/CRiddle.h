@@ -7,7 +7,11 @@
 
 #include "src/globals.h"
 
+#include "src/functions/FStatus.h"
+
 #include "src/hardware/LEDKey.h"
+
+extern FStatus fStatus;
 
 class CRiddle
 {

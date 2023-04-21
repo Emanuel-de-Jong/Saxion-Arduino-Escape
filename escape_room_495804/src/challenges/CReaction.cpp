@@ -32,6 +32,7 @@ void CReaction::loop()
     if (leds[ledIndex] == ledToHit)
     {
       isDone = true;
+      fStatus.setChallengeDone(CHALLENGE_ID);
 
       delay(1000);
       ledToHit.turnOff();

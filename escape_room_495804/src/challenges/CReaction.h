@@ -5,8 +5,12 @@
 
 #include "src/globals.h"
 
+#include "src/functions/FStatus.h"
+
 #include "src/hardware/LED.h"
 #include "src/hardware/Button.h"
+
+extern FStatus fStatus;
 
 class CReaction
 {

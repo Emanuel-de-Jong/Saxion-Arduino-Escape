@@ -5,10 +5,14 @@
 
 #include "src/globals.h"
 
+#include "src/functions/FStatus.h"
+
 #include "src/hardware/Button.h"
 #include "src/hardware/RGBLED.h"
 
 #include "src/challenges/CSimonColor.h"
+
+extern FStatus fStatus;
 
 class CSimon
 {

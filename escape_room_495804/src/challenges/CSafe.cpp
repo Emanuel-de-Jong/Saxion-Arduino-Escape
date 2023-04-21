@@ -44,6 +44,7 @@ void CSafe::loop()
       if (currentStageIndex + 1 > stageCount)
       {
         isDone = true;
+        fStatus.setChallengeDone(CHALLENGE_ID);
         return;
       }
     }
