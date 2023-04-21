@@ -15,7 +15,7 @@
 class CSafe : public Challenge
 {
 private:
-  Buzzer buzzer;
+  Buzzer &buzzer;
   Potmeter potmeter;
 
   int currentStageIndex = 0;
@@ -30,7 +30,7 @@ private:
   int countdown;
 
 public:
-  CSafe();
+  CSafe(Buzzer &buzzer);
 
   void setup();
   void loop();

@@ -1,7 +1,7 @@
 #include "src/challenges/CSafe.h"
 
-CSafe::CSafe()
-    : buzzer(CSAFE_BUZZER_PIN),
+CSafe::CSafe(Buzzer &buzzer)
+    : buzzer(buzzer),
       potmeter(CSAFE_POTMETER_PIN),
       stages{
           CSafeStage(250, 350),

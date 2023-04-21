@@ -12,11 +12,14 @@
 #include "src/challenges/CReaction.h"
 
 #include "src/hardware/LCD.h"
+#include "src/hardware/Buzzer.h"
 
 class FStatus
 {
 private:
   LCD lcd;
+
+  Buzzer &buzzer;
 
   const int SOLVE_TIME;
 
@@ -99,7 +102,7 @@ private:
   bool areAllChallengesDone();
 
 public:
-  FStatus(CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction);
+  FStatus(Buzzer &buzzer, CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction);
 
   void setup();
   void loop();

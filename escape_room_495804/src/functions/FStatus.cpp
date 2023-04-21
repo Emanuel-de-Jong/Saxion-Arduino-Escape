@@ -1,7 +1,8 @@
 #include "src/functions/FStatus.h"
 
-FStatus::FStatus(CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction)
-    : SOLVE_TIME(5 * 60),
+FStatus::FStatus(Buzzer &buzzer, CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction)
+    : buzzer(buzzer),
+      SOLVE_TIME(5 * 60),
       REFRESH_RATE(500),
       challenges{cSafe, cRiddle, cSimon, cReaction}
 {
@@ -28,6 +29,9 @@ void FStatus::loop()
   millisSinceRefresh = millis();
 
   updateChallengeStatuses();
+  // if (areAllChallengesDone()) {
+  //   buzzer.buzz(400, 100);
+  // }
 
   lcd.i2c.clear();
   lcd.i2c.home();

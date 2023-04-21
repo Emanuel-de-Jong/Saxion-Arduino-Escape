@@ -7,12 +7,16 @@
 #include "src/challenges/CSimon.h"
 #include "src/challenges/CReaction.h"
 
-CSafe cSafe;
+#include "src/hardware/Buzzer.h"
+
+Buzzer buzzer(BUZZER_PIN);
+
+CSafe cSafe(buzzer);
 CRiddle cRiddle;
 CSimon cSimon;
 CReaction cReaction;
 
-FStatus fStatus(&cSafe, &cRiddle, &cSimon, &cReaction);
+FStatus fStatus(buzzer, &cSafe, &cRiddle, &cSimon, &cReaction);
 
 void setup()
 {

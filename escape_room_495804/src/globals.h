@@ -5,7 +5,8 @@
 
 #define TEMPL_PIN 0
 
-#define CSAFE_BUZZER_PIN 13
+#define BUZZER_PIN 13
+
 #define CSAFE_POTMETER_PIN A0
 
 #define CRIDDLE_LEDKEY_STROBE_PIN 12
