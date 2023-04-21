@@ -16,11 +16,12 @@ CSimon::CSimon()
           CSimonColor(buttonYellow, rgbLED.YELLOW),
           CSimonColor(buttonBlue, rgbLED.BLUE),
       },
-      USER_INPUT_TIME(3 * 1000),
+      SEQUENCE_STARTING_STAGE(3),
+      USER_INPUT_TIME(3000),
       BUTTON_COOLDOWN_TIME(20),
-      COLOR_TIME(500),
-      BLANK_TIME(150),
-      COLOR_SEQUENCE_RESTART_TIME(2500)
+      COLOR_TIME(200),
+      BLANK_TIME(100),
+      COLOR_SEQUENCE_RESTART_TIME(2000)
 {
   setChallengeId(2);
 }
@@ -149,7 +150,7 @@ void CSimon::showSequence()
 
 void CSimon::createRandomSequence()
 {
-  sequenceStage = 1;
+  sequenceStage = SEQUENCE_STARTING_STAGE;
   sequenceIndex = 0;
 
   // Give rand uptime as the seed to always get different random numbers

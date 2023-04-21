@@ -2,7 +2,7 @@
 
 FStatus::FStatus(Buzzer &buzzer, CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction)
     : buzzer(buzzer),
-      SOLVE_TIME(5 * 60),
+      SOLVE_TIME(3 * 60),
       // SOLVE_TIME(3),
       REFRESH_RATE(500),
       challenges{cSafe, cRiddle, cSimon, cReaction}

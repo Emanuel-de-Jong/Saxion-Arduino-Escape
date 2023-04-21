@@ -24,10 +24,11 @@ private:
   RGBLED rgbLED;
 
   CSimonColor simonColors[4];
-  CSimonColor sequence[4];
+  CSimonColor sequence[6];
 
-  const int SEQUENCE_SIZE = 4;
-  int sequenceStage = 1;
+  const int SEQUENCE_SIZE = 6;
+  const int SEQUENCE_STARTING_STAGE;
+  int sequenceStage = 0;
   int sequenceIndex = 0;
 
   const int USER_INPUT_TIME;
