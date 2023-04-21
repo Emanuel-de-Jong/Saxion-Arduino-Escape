@@ -1,7 +1,8 @@
 #ifndef CHALLENGE_H
 #define CHALLENGE_H
 
-class Challenge {
+class Challenge
+{
 private:
   int challengeId = -1;
 

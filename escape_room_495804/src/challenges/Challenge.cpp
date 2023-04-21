@@ -4,18 +4,22 @@ void Challenge::setup() {}
 
 void Challenge::loop() {}
 
-void Challenge::setChallengeId(int val) {
+void Challenge::setChallengeId(int val)
+{
   challengeId = val;
 }
 
-int Challenge::getChallengeId() {
+int Challenge::getChallengeId()
+{
   return challengeId;
 }
 
-bool Challenge::getIsDone() {
+bool Challenge::getIsDone()
+{
   return isDone;
 }
 
-void Challenge::setIsDone(bool val) {
+void Challenge::setIsDone(bool val)
+{
   isDone = val;
 }

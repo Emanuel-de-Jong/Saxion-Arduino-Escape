@@ -38,10 +38,13 @@ void CRiddle::loop()
   millisSinceButtonCooldown = millis();
 
   int btn = ledKey.getPressedBtn();
-  if (btn == -1) {
+  if (btn == -1)
+  {
     isButtonPressed = false;
     return;
-  } else if (isButtonPressed) {
+  }
+  else if (isButtonPressed)
+  {
     return;
   }
   isButtonPressed = true;

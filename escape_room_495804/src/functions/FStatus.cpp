@@ -13,7 +13,8 @@ void FStatus::setup()
 {
   lcd.setup();
 
-  for (int i = 0; i < CHALLENGE_COUNT; i++) {
+  for (int i = 0; i < CHALLENGE_COUNT; i++)
+  {
     lcd.i2c.createChar(i, challengeChars[i]);
   }
 
@@ -30,19 +31,22 @@ void FStatus::setup()
 
 void FStatus::loop()
 {
-  if (hasWon || hasLost) return;
+  if (hasWon || hasLost)
+    return;
 
   if (millis() - millisSinceRefresh <= REFRESH_RATE)
     return;
   millisSinceRefresh = millis();
 
   updateChallengeStatuses();
-  if (areAllChallengesDone()) {
+  if (areAllChallengesDone())
+  {
     execWin();
     return;
   }
 
-  if (getTimeRemaining() <= 0) {
+  if (getTimeRemaining() <= 0)
+  {
     execLoss();
     return;
   }
@@ -72,28 +76,36 @@ void FStatus::printChallenges()
 {
   lcd.i2c.setCursor(0, 1);
 
-  for (int i = 0; i < CHALLENGE_COUNT; i++) {
+  for (int i = 0; i < CHALLENGE_COUNT; i++)
+  {
     lcd.i2c.write(i);
     lcd.i2c.write(challengeStatuses[i] ? 7 : 6);
   }
 }
 
-void FStatus::updateChallengeStatuses() {
-  for (int i = 0; i < CHALLENGE_COUNT; i++) {
+void FStatus::updateChallengeStatuses()
+{
+  for (int i = 0; i < CHALLENGE_COUNT; i++)
+  {
     bool newStatus = challenges[i]->getIsDone();
-    if (newStatus != challengeStatuses[i]) {
+    if (newStatus != challengeStatuses[i])
+    {
       challengeStatuses[i] = newStatus;
 
-      if (newStatus == true) {
+      if (newStatus == true)
+      {
         execChallengeDone();
       }
     }
   }
 }
 
-bool FStatus::areAllChallengesDone() {
-  for (bool status : challengeStatuses) {
-    if (!status) {
+bool FStatus::areAllChallengesDone()
+{
+  for (bool status : challengeStatuses)
+  {
+    if (!status)
+    {
       return false;
     }
   }
@@ -101,11 +113,13 @@ bool FStatus::areAllChallengesDone() {
   return true;
 }
 
-void FStatus::execChallengeDone() {
+void FStatus::execChallengeDone()
+{
   buzzer.buzz(440, 600);
 }
 
-void FStatus::execWin() {
+void FStatus::execWin()
+{
   hasWon = true;
 
   disableChallenges();
@@ -113,10 +127,9 @@ void FStatus::execWin() {
   lcd.i2c.clear();
   lcd.i2c.home();
   lcd.i2c.print("YOU WIN!!!");
-  
+
   lcd.i2c.setCursor(0, 1);
   lcd.i2c.printf("SCORE: %d/%d", getTimeRemaining(), SOLVE_TIME);
-
 
   buzzer.buzz(440, 600);
   delay(900);
@@ -127,7 +140,8 @@ void FStatus::execWin() {
   buzzer.buzz(523, 900);
 }
 
-void FStatus::execLoss() {
+void FStatus::execLoss()
+{
   hasLost = true;
 
   disableChallenges();
@@ -147,8 +161,10 @@ void FStatus::execLoss() {
   buzzer.buzz(110, 500);
 }
 
-void FStatus::disableChallenges() {
-  for (Challenge *challenge : challenges) {
+void FStatus::disableChallenges()
+{
+  for (Challenge *challenge : challenges)
+  {
     challenge->setIsDone(true);
   }
 }

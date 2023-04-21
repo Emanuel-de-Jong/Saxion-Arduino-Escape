@@ -7,7 +7,7 @@ CReaction::CReaction()
       ledToHit(led2),
       button(CREACTION_BUTTON_PIN),
       leds{led1, led2, led3},
-      SPEED(500)
+      SPEED(200)
 {
   setChallengeId(3);
 }
