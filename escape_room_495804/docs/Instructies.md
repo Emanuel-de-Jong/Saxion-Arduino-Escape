@@ -1,5 +1,5 @@
 # Emanuel's Escape Room
-<img src="imgs/1.%20Escape%20Room.jpg" width="400px"></img><br>
+<img src="imgs/instructies/1.%20Escape%20Room.jpg" width="400px"></img><br>
 
 ## Introductie
 De escape room heeft 4 challenges en een LCD scherm waar je je status kan zien. De bedoeling is om de challenges binnen de gegeven tijd te halen.
@@ -9,7 +9,7 @@ De volgorde waarop je de challenges doet maakt niet uit.
 -----
 
 ## Status
-<img src="imgs/3.1%20Timer.jpg" width="400px"></img><br>
+<img src="imgs/instructies/3.1%20Timer.jpg" width="400px"></img><br>
 Link boven staat de tijd die je nog hebt in `minuten:seconden`. Als deze op 0 komt te staan heb je verloren.
 Onder zie je de challenges en of je ze gehaald hebt. Het is in de volgorde:
 - Challenge 1: Safe
@@ -24,19 +24,19 @@ Onder zie je de challenges en of je ze gehaald hebt. Het is in de volgorde:
 Op de foto zijn de eeste 2 checks ingevuld, dit laat zien dat ze gehaald zijn. Challenge 3 en 4 moeten nog.
 
 ### Win
-<img src="imgs/3.2%20Win.jpg" width="400px"></img><br>
+<img src="imgs/instructies/3.2%20Win.jpg" width="400px"></img><br>
 Als je hebt gewonnen hoor je een vrolijk melodietje.
 Ook zie je het op het scherm, met daaronder je score. De score is de seconden die je over hebt tegenover de tijd die je had. Dus bij de foto is de escape room gehaald in 436 van de 600 seconden.
 
 ### Timeout
-<img src="imgs/3.3%20Timeout.jpg" width="400px"></img><br>
+<img src="imgs/instructies/3.3%20Timeout.jpg" width="400px"></img><br>
 Als je hebt verloren hoor je het ook. Dit keer als een alarm met 5 biepen.
 Ook staat het weer als tekst op het scherm.
 
 -----
 
 ## Challenge 1: Safe
-<img src="imgs/2.1%20Safe.jpg" width="400px"></img><br>
+<img src="imgs/instructies/2.1%20Safe.jpg" width="400px"></img><br>
 Het doel is om de knop op de juiste positie te krijgen. Bij het draaien aan de knop hoor je soms geluiden. Wat zouden ze betekenen?
 
 <details>
@@ -45,7 +45,7 @@ Het doel is om de knop op de juiste positie te krijgen. Bij het draaien aan de k
 </details>
 
 ## Challenge 2: Riddle
-<img src="imgs/2.2%20Riddle.jpg" width="400px"></img><br>
+<img src="imgs/instructies/2.2%20Riddle.jpg" width="400px"></img><br>
 Op het linker scherm is een nummer. Deze heeft een relatie met de 8 knoppen.
 
 <details>
@@ -54,9 +54,9 @@ Op het linker scherm is een nummer. Deze heeft een relatie met de 8 knoppen.
 </details>
 
 ## Challenge 3: Simon Says
-<img src="imgs/2.3%20Simon%20Says.jpg" width="400px"></img><br>
+<img src="imgs/instructies/2.3%20Simon%20Says.jpg" width="400px"></img><br>
 Herhaal met de knoppen de reeks kleuren van het licht. Dit doe je 4 keer. Maar elke keer komt er een kleur bij. Bij het drukken van een foute knop begint de challenge opnieuw!
 
 ## Challenge 4: Reation time
-<img src="imgs/2.4%20Reaction%20time.jpg" width="400px"></img><br>
+<img src="imgs/instructies/2.4%20Reaction%20time.jpg" width="400px"></img><br>
 Test je ractie snelheid. De lichtjes gaan steeds heen en weer. Druk snel op de knop als het groene lichtje brand.
