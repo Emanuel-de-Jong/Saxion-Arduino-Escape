@@ -57,6 +57,6 @@ Op het linker scherm is een nummer. Deze heeft een relatie met de 8 knoppen.
 <img src="imgs/instructies/2.3%20Simon%20Says.jpg" width="400px"></img><br>
 Herhaal met de knoppen de reeks kleuren van het licht. Dit doe je 4 keer. Maar elke keer komt er een kleur bij. Bij het drukken van een foute knop begint de challenge opnieuw!
 
-## Challenge 4: Reation time
+## Challenge 4: Reation Time
 <img src="imgs/instructies/2.4%20Reaction%20time.jpg" width="400px"></img><br>
 Test je ractie snelheid. De lichtjes gaan steeds heen en weer. Druk snel op de knop als het groene lichtje brand.
