@@ -16,6 +16,7 @@ CSimon::CSimon()
           CSimonColor(buttonYellow, rgbLED.YELLOW),
           CSimonColor(buttonBlue, rgbLED.BLUE),
       },
+      // The starting stage is set to 3 to start with the first 3 colors of the sequence
       SEQUENCE_STARTING_STAGE(3),
       USER_INPUT_TIME(3000),
       BUTTON_COOLDOWN_TIME(20),
@@ -51,6 +52,7 @@ void CSimon::loop()
   showSequence();
 }
 
+// Checks if a button was pressed
 void CSimon::checkButtonInput()
 {
   if (isAnyButtonPressed())
@@ -64,6 +66,8 @@ void CSimon::checkButtonInput()
 
     millisSinceUserInput = millis();
 
+    // If this is the first button press since showing the sequence,
+    // set sequenceIndex to 0 to restart the stage
     if (!isUserInputting)
     {
       isUserInputting = true;
@@ -78,23 +82,27 @@ void CSimon::checkButtonInput()
   }
 }
 
+// Checks if the pressed button from checkButtonInput() is valid and handles it acordingly
 void CSimon::checkButtonInputValidity()
 {
   if (isButtonPressedValid())
   {
     sequenceIndex++;
 
+    // If the sequence range of the stage is done
     if (sequenceIndex + 1 > sequenceStage)
     {
       sequenceIndex = 0;
-      sequenceStage++;
+      sequenceStage++; // Go to the next stage
 
       isStageChanged = true;
 
+      // Make the LED green for a bit to indicate a pass
       rgbLED.setColor(rgbLED.GREEN);
       delay(200);
       rgbLED.turnOff();
 
+      // If it was the last stage
       if (sequenceStage > SEQUENCE_SIZE)
       {
         setIsDone(true);
@@ -102,22 +110,28 @@ void CSimon::checkButtonInputValidity()
       }
     }
   }
+  // On any wrong button input, restart the whole challenge
   else
   {
+    // Reset the challenge and get a new sequence
     createRandomSequence();
 
     isStageChanged = true;
 
+    // Make the LED red for a bit to indicate failure
     rgbLED.setColor(rgbLED.RED);
     delay(200);
     rgbLED.turnOff();
   }
 }
 
+// Shows the color sequence with the LEDs
 void CSimon::showSequence()
 {
   if (millis() - millisSinceUserInput > USER_INPUT_TIME)
   {
+    // If this is the first showcase since a button press,
+    // set sequenceIndex to 0 to restart the color sequence
     if (isUserInputting)
     {
       isUserInputting = false;
@@ -126,6 +140,7 @@ void CSimon::showSequence()
       sequenceIndex = 0;
     }
 
+    // If the LED has been on and off long enough, go to the next color
     if (millis() - millisSinceColorChange > COLOR_TIME + BLANK_TIME)
     {
       if (millis() - millisSinceColorSequenceRestart <= COLOR_SEQUENCE_RESTART_TIME)
@@ -141,6 +156,7 @@ void CSimon::showSequence()
         millisSinceColorSequenceRestart = millis();
       }
     }
+    // If the LED has been on long enough, turn it off
     else if (millis() - millisSinceColorChange > COLOR_TIME)
     {
       rgbLED.turnOff();
@@ -179,6 +195,9 @@ bool CSimon::isButtonPressedValid()
   if (!buttonToPress.isPressed())
     return false;
 
+  // Return false if a wrong button was pressed
+  // Even if the right button was pressed as well
+  // Prevents spamming all buttons
   for (Button button : buttons)
   {
     if (button.isPressed() && !(button == buttonToPress))

@@ -25,10 +25,10 @@ private:
   const int LED_COUNT = 3;
   int ledIndex = 0;
 
-  int SPEED;
+  int SPEED; // The milliseconds a LED is on
   int millisSinceLEDOn = 0;
 
-  bool isLeftToRight = true;
+  bool isLeftToRight = true; // Is toggled to make the leds go back and forth.
 
   void turnAllLEDsOff();
 

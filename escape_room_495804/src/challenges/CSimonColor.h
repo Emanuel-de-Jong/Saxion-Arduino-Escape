@@ -1,3 +1,5 @@
+// A button - color combination for the sequence in the Simon challenge
+
 #ifndef CSIMONCOLOR_H
 #define CSIMONCOLOR_H
 

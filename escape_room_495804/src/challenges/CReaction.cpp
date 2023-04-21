@@ -29,10 +29,12 @@ void CReaction::loop()
 
   if (button.isPressed())
   {
+    // Checks if the LED that was on when the user pressed the button, was the green LED
     if (leds[ledIndex] == ledToHit)
     {
       setIsDone(true);
 
+      // Delay for feedback that the user really pressed the green LED
       delay(1000);
       ledToHit.turnOff();
 
@@ -40,6 +42,7 @@ void CReaction::loop()
     }
     else
     {
+      // Blink the wrongly pressed red LED to indicate what went wrong
       for (int i = 0; i < 5; i++)
       {
         leds[ledIndex].turnOff();
@@ -51,6 +54,7 @@ void CReaction::loop()
     }
   }
 
+  // Executes every SPEED milliseconds
   if (millis() - millisSinceLEDOn > SPEED)
   {
     millisSinceLEDOn = millis();
@@ -74,6 +78,7 @@ void CReaction::loop()
       }
     }
 
+    // Lazy way to turn the last LED off
     turnAllLEDsOff();
     leds[ledIndex].turnOn();
   }

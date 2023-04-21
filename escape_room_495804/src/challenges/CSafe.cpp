@@ -1,8 +1,9 @@
 #include "src/challenges/CSafe.h"
 
 CSafe::CSafe(Buzzer &buzzer)
-    : buzzer(buzzer),
+    : buzzer(buzzer), // A reference to the global buzzer
       potmeter(CSAFE_POTMETER_PIN),
+      // The ranges of the different stages
       stages{
           CSafeStage(250, 350),
           CSafeStage(625, 675),
@@ -41,20 +42,22 @@ void CSafe::loop()
     if (countdown <= 0)
     {
       currentStageIndex++;
-      if (currentStageIndex + 1 > stageCount)
+      if (currentStageIndex + 1 > STAGE_COUNT)
       {
         setIsDone(true);
         return;
       }
     }
   }
+  // When the potmeter is not in range but close enough, give a lower buzz to help the user find it
   else
   {
-    if (stage.isInRange(potmeterValue, 50))
+    // There are 2 helper ranges with different buzz frequencies
+    if (stage.isInRange(potmeterValue, 50)) // 1-50 units offset
     {
       buzzer.buzz(262, CHECK_RATE + 10);
     }
-    else if (stage.isInRange(potmeterValue, 100))
+    else if (stage.isInRange(potmeterValue, 100)) // 51-100 units offset
     {
       buzzer.buzz(65, CHECK_RATE + 10);
     }

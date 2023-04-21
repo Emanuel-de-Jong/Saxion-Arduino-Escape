@@ -9,6 +9,7 @@ CRiddle::CRiddle()
       NUM_2(8),
       BTN_1_PRESSES(2),
       BTN_2_PRESSES(5),
+      // The number on the left screen is dynamically created once here for clean code and high performance
       leftDisplay(std::stoi(
           std::to_string(NUM_1) +
           std::to_string(BTN_1_PRESSES) +
@@ -25,6 +26,7 @@ void CRiddle::setup()
 
   ledKey.tm.displayIntNum(leftDisplay, false, TMAlignTextLeft);
 
+  // Turn all LEDs on to indicate stage 1
   ledKey.tm.setLEDs(0b1111111100000000);
 }
 
@@ -37,17 +39,28 @@ void CRiddle::loop()
     return;
   millisSinceButtonCooldown = millis();
 
+  if (!handleBtnPress())
+    return;
+
+  checkStageComplete();
+}
+
+// Checks for button presses and if they are consecutive
+// Returns false if no buttons are pressed or the same button has not yet been released
+bool CRiddle::handleBtnPress() {
   int btn = ledKey.getPressedBtn();
+  // No button pressed
   if (btn == -1)
   {
-    isButtonPressed = false;
-    return;
+    isButtonPressed = false; // Set to false for possible button release
+    return false;
   }
+  // Same button still pressed
   else if (isButtonPressed)
   {
-    return;
+    return false;
   }
-  isButtonPressed = true;
+  isButtonPressed = true; // Set to true so the `else if` above is triggered next loop
 
   if (btn == lastBtn)
   {
@@ -61,9 +74,15 @@ void CRiddle::loop()
 
   ledKey.tm.DisplayDecNumNibble(leftDisplay, consecutiveBtnPressed);
 
+  return true;
+}
+
+// Compares consecutive button presses against the stage requirements and increases the stage if met
+void CRiddle::checkStageComplete() {
   int num = stage == 1 ? NUM_1 : NUM_2;
   int btnPresses = stage == 1 ? BTN_1_PRESSES : BTN_2_PRESSES;
-  if (consecutiveBtnPressed == btnPresses && btn == num - 1)
+  // Stage requirements are met if the right button (num) has been pressed the right amount of times (btnPresses)
+  if (consecutiveBtnPressed == btnPresses && ledKey.getPressedBtn() == num - 1)
   {
     consecutiveBtnPressed = 0;
     ledKey.tm.DisplayDecNumNibble(leftDisplay, consecutiveBtnPressed);
@@ -72,14 +91,15 @@ void CRiddle::loop()
 
     if (stage == 2)
     {
+      // Turn only the right LEDs on to indicate stage 2
       ledKey.tm.setLEDs(0b1111000000000000);
     }
     else
     {
+      // Turn all LEDs off to indicate completion
       ledKey.tm.setLEDs(0b0000000000000000);
 
       setIsDone(true);
-      return;
     }
   }
 }
