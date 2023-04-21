@@ -112,7 +112,11 @@ void FStatus::execWin() {
 
   lcd.i2c.clear();
   lcd.i2c.home();
-  lcd.i2c.print("YOU WON!!!");
+  lcd.i2c.print("YOU WIN!!!");
+  
+  lcd.i2c.setCursor(0, 1);
+  lcd.i2c.printf("SCORE: %d/%d", getTimeRemaining(), SOLVE_TIME);
+
 
   buzzer.buzz(440, 600);
   delay(900);
@@ -130,7 +134,7 @@ void FStatus::execLoss() {
 
   lcd.i2c.clear();
   lcd.i2c.home();
-  lcd.i2c.print("YOU LOST!!!");
+  lcd.i2c.print("YOU LOSE!!!");
 
   buzzer.buzz(110, 500);
   delay(750);
