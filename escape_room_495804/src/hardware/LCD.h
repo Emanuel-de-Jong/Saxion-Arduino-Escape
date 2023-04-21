@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#include "src/globals.h"
+
 #include <LiquidCrystal_I2C.h>
 
 class LCD

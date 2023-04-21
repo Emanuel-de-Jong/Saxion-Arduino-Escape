@@ -12,17 +12,19 @@
 ## Pin Mapping
 | Pins |      Beschrijving     |     Pins     |    Beschrijving    |
 |:----:|:---------------------:|:------------:|:------------------:|
-|      |                       |      SCL/D15 |                    |
-|      |                       |      SDA/D14 |                    |
+|      |                       |      SCL/D15 | I2C                |
+|      |                       |      SDA/D14 | I2C                |
 |      |                       |      SCK/D13 | Buzzer             |
 |      |                       |     MISO/D12 | LEDKey strobe      |
 |      |                       | PWM/MOSI/D11 | LEDKey clock       |
 |      |                       |   PWM/CS/D10 | LEDKey dio         |
 |      |                       |       PWM/D9 | Simon RGBLED blauw |
 |      |                       |           D8 | Simon knop blauw   |
-|   A0 | Potmeter              |           D7 | Simon knop geel    |
-|   A1 | React LED rood links  |       PWM/D6 | Simon RGBLED groen |
-|   A2 | React LED groen       |       PWM/D5 | Simon RGBLED rood  |
-|   A3 | React LED rood rechts |           D4 | Simon knop rood    |
-|   A4 |                       |       PWM/D3 | React knop         |
-|   A5 |                       |           D2 | Simon knop groen   |
+|      |                       |           D7 | Simon knop geel    |
+|      |                       |       PWM/D6 | Simon RGBLED groen |
+|   A0 | Potmeter              |       PWM/D5 | Simon RGBLED rood  |
+|   A1 | React LED rood links  |           D4 | Simon knop rood    |
+|   A2 | React LED groen       |       PWM/D3 | React knop         |
+|   A3 | React LED rood rechts |           D2 | Simon knop groen   |
+|   A4 |                       |        TX/D1 |                    |
+|   A5 |                       |        RX/D0 |                    |

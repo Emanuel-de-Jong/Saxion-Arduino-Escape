@@ -9,6 +9,8 @@
 
 #define BUZZER_PIN 13
 
+#define FSTATUS_LCD 0x27
+
 #define CSAFE_POTMETER_PIN A0
 
 #define CRIDDLE_LEDKEY_STROBE_PIN 12
