@@ -1,6 +1,6 @@
 #include "src/functions/FStatus.h"
 
-FStatus::FStatus(CSafe &cSafe, CRiddle &cRiddle, CSimon &cSimon, CReaction &cReaction)
+FStatus::FStatus(CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction)
     : SOLVE_TIME(5 * 60),
       REFRESH_RATE(500),
       challenges{cSafe, cRiddle, cSimon, cReaction}
@@ -56,15 +56,9 @@ void FStatus::printChallenges()
 }
 
 void FStatus::updateChallengeStatuses() {
-  // Serial.println(challenges[3].getIsDone());
-  // for (Challenge challenge : challenges) {
-  //   challengeStatuses[challenge.getChallengeId()] = challenge.getIsDone();
-  // }
-
-  challengeStatuses[cSafe.getChallengeId()] = cSafe.getIsDone();
-  challengeStatuses[cRiddle.getChallengeId()] = cRiddle.getIsDone();
-  challengeStatuses[cSimon.getChallengeId()] = cSimon.getIsDone();
-  challengeStatuses[cReaction.getChallengeId()] = cReaction.getIsDone();
+  for (Challenge *challenge : challenges) {
+    challengeStatuses[challenge->getChallengeId()] = challenge->getIsDone();
+  }
 }
 
 bool FStatus::areAllChallengesDone() {

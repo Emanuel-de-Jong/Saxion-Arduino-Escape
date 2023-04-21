@@ -13,11 +13,6 @@
 
 #include "src/hardware/LCD.h"
 
-extern CSafe cSafe;
-extern CRiddle cRiddle;
-extern CSimon cSimon;
-extern CReaction cReaction;
-
 class FStatus
 {
 private:
@@ -26,7 +21,7 @@ private:
   const int SOLVE_TIME;
 
   const int CHALLENGE_COUNT = 4;
-  Challenge challenges[4];
+  Challenge *challenges[4];
   bool challengeStatuses[4] = {
       false,
       false,
@@ -104,7 +99,7 @@ private:
   bool areAllChallengesDone();
 
 public:
-  FStatus(CSafe &cSafe, CRiddle &cRiddle, CSimon &cSimon, CReaction &cReaction);
+  FStatus(CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction);
 
   void setup();
   void loop();

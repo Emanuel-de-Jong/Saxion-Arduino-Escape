@@ -12,7 +12,7 @@ CRiddle cRiddle;
 CSimon cSimon;
 CReaction cReaction;
 
-FStatus fStatus(cSafe, cRiddle, cSimon, cReaction);
+FStatus fStatus(&cSafe, &cRiddle, &cSimon, &cReaction);
 
 void setup()
 {
