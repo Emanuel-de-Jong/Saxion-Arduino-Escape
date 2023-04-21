@@ -17,7 +17,7 @@ CSimon::CSimon()
           CSimonColor(buttonBlue, rgbLED.BLUE),
       },
       USER_INPUT_TIME(3 * 1000),
-      BUTTON_COOLDOWN_TIME(1000),
+      BUTTON_COOLDOWN_TIME(20),
       COLOR_TIME(500),
       BLANK_TIME(150),
       COLOR_SEQUENCE_RESTART_TIME(2500)

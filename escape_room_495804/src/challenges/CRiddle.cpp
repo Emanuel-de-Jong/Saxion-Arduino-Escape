@@ -14,7 +14,7 @@ CRiddle::CRiddle()
           std::to_string(BTN_1_PRESSES) +
           std::to_string(NUM_2) +
           std::to_string(BTN_2_PRESSES))),
-      WRITE_RATE(250)
+      BUTTON_COOLDOWN_TIME(20)
 {
 }
 
@@ -32,13 +32,18 @@ void CRiddle::loop()
   if (isDone)
     return;
 
-  if (millis() - millisSinceWrite <= WRITE_RATE)
+  if (millis() - millisSinceButtonCooldown <= BUTTON_COOLDOWN_TIME)
     return;
-  millisSinceWrite = millis();
+  millisSinceButtonCooldown = millis();
 
   int btn = ledKey.getPressedBtn();
-  if (btn == -1)
+  if (btn == -1) {
+    isButtonPressed = false;
     return;
+  } else if (isButtonPressed) {
+    return;
+  }
+  isButtonPressed = true;
 
   if (btn == lastBtn)
   {
@@ -52,8 +57,8 @@ void CRiddle::loop()
 
   ledKey.tm.DisplayDecNumNibble(leftDisplay, consecutiveBtnPressed);
 
-  int num = stage == 0 ? NUM_1 : NUM_2;
-  int btnPresses = stage == 0 ? BTN_1_PRESSES : BTN_2_PRESSES;
+  int num = stage == 1 ? NUM_1 : NUM_2;
+  int btnPresses = stage == 1 ? BTN_1_PRESSES : BTN_2_PRESSES;
   if (consecutiveBtnPressed == btnPresses && btn == num - 1)
   {
     consecutiveBtnPressed = 0;
@@ -61,7 +66,7 @@ void CRiddle::loop()
 
     stage++;
 
-    if (stage == 1)
+    if (stage == 2)
     {
       ledKey.tm.setLEDs(0b1111000000000000);
     }

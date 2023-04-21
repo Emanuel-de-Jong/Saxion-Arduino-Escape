@@ -22,10 +22,12 @@ private:
 
   int leftDisplay;
 
-  const int WRITE_RATE;
-  int millisSinceWrite = 0;
+  const int BUTTON_COOLDOWN_TIME;
+  int millisSinceButtonCooldown = 0;
 
-  int stage = 0;
+  bool isButtonPressed = false;
+
+  int stage = 1;
 
   int lastBtn = -1;
   int consecutiveBtnPressed = 1;
