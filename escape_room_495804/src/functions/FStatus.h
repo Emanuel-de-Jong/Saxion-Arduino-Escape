@@ -5,6 +5,7 @@
 
 #include "src/globals.h"
 
+#include "src/challenges/Challenge.h"
 #include "src/challenges/CSafe.h"
 #include "src/challenges/CRiddle.h"
 #include "src/challenges/CSimon.h"
@@ -25,6 +26,7 @@ private:
   const int SOLVE_TIME;
 
   const int CHALLENGE_COUNT = 4;
+  Challenge challenges[4];
   bool challengeStatuses[4] = {
       false,
       false,
@@ -102,7 +104,7 @@ private:
   bool areAllChallengesDone();
 
 public:
-  FStatus();
+  FStatus(CSafe &cSafe, CRiddle &cRiddle, CSimon &cSimon, CReaction &cReaction);
 
   void setup();
   void loop();

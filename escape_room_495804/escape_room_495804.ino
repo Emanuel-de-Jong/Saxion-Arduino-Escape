@@ -7,12 +7,12 @@
 #include "src/challenges/CSimon.h"
 #include "src/challenges/CReaction.h"
 
-FStatus fStatus;
-
 CSafe cSafe;
 CRiddle cRiddle;
 CSimon cSimon;
 CReaction cReaction;
+
+FStatus fStatus(cSafe, cRiddle, cSimon, cReaction);
 
 void setup()
 {
