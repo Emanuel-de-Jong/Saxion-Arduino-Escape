@@ -1,7 +1,8 @@
 #include "src/challenges/CSimon.h"
 
 CSimon::CSimon()
-    : buttonGreen(CSIMON_BUTTON_GREEN_PIN),
+    : CHALLENGE_ID(2),
+      buttonGreen(CSIMON_BUTTON_GREEN_PIN),
       buttonRed(CSIMON_BUTTON_RED_PIN),
       buttonYellow(CSIMON_BUTTON_YELLOW_PIN),
       buttonBlue(CSIMON_BUTTON_BLUE_PIN),
@@ -184,4 +185,8 @@ bool CSimon::isButtonPressedValid()
   }
 
   return true;
+}
+
+int CSimon::getChallengeId() {
+  return CHALLENGE_ID;
 }

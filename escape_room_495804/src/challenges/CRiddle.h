@@ -12,6 +12,8 @@
 class CRiddle
 {
 private:
+  const int CHALLENGE_ID;
+
   LEDKey ledKey;
 
   const int NUM_1;
@@ -39,6 +41,8 @@ public:
 
   void setup();
   void loop();
+
+  int getChallengeId();
 };
 
 #endif

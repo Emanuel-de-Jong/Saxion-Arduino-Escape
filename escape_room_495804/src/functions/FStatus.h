@@ -14,6 +14,7 @@ private:
 
   const int SOLVE_TIME;
 
+  const int CHALLENGE_COUNT = 4;
   bool challenges[4] = {
       false,
       false,
@@ -41,7 +42,9 @@ private:
       B11111,
       B11111,
       B11111};
-  byte lockChar[8] = {
+    
+  byte challengeChars[4][8] = {
+    { // Safe
       B00000,
       B00000,
       B00000,
@@ -49,8 +52,9 @@ private:
       B01110,
       B01110,
       B11111,
-      B11111};
-  byte riddleChar[8] = {
+      B11111
+    },
+    { // Riddle
       B00000,
       B00000,
       B00000,
@@ -58,8 +62,9 @@ private:
       B10100,
       B11100,
       B10100,
-      B11101};
-  byte simonChar[8] = {
+      B11101
+    },
+    { // Simon
       B00000,
       B00000,
       B00000,
@@ -67,25 +72,31 @@ private:
       B11011,
       B00000,
       B11011,
-      B11011};
-  byte wiringChar[8] = {
+      B11011
+    },
+    { // Reaction
       B00000,
       B00000,
       B00000,
       B10101,
-      B10101,
-      B10101,
-      B10101,
-      B10101};
+      B00000,
+      B00100,
+      B01110,
+      B00100
+    }
+  };
 
   void printTime();
   void printChallenges();
+  bool areAllChallengesDone();
 
 public:
   FStatus();
 
   void setup();
   void loop();
+
+  void setChallengeDone(int challengeId);
 };
 
 #endif

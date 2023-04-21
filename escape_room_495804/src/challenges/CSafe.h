@@ -13,6 +13,8 @@
 class CSafe
 {
 private:
+  const int CHALLENGE_ID;
+
   Buzzer buzzer;
   Potmeter potmeter;
 
@@ -34,6 +36,8 @@ public:
 
   void setup();
   void loop();
+
+  int getChallengeId();
 };
 
 #endif

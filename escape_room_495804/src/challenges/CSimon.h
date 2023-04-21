@@ -13,6 +13,8 @@
 class CSimon
 {
 private:
+  const int CHALLENGE_ID;
+
   Button buttonGreen;
   Button buttonRed;
   Button buttonYellow;
@@ -59,6 +61,8 @@ public:
 
   void setup();
   void loop();
+
+  int getChallengeId();
 };
 
 #endif

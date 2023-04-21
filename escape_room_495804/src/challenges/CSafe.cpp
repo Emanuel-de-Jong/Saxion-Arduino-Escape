@@ -1,7 +1,8 @@
 #include "src/challenges/CSafe.h"
 
 CSafe::CSafe()
-    : buzzer(CSAFE_BUZZER_PIN),
+    : CHALLENGE_ID(0),
+      buzzer(CSAFE_BUZZER_PIN),
       potmeter(CSAFE_POTMETER_PIN),
       stages{
           CSafeStage(250, 350),
@@ -60,4 +61,8 @@ void CSafe::loop()
 
     countdown = COUNTDOWN_DURATION;
   }
+}
+
+int CSafe::getChallengeId() {
+  return CHALLENGE_ID;
 }

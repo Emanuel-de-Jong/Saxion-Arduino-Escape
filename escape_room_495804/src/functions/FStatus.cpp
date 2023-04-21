@@ -10,12 +10,12 @@ void FStatus::setup()
 {
   lcd.setup();
 
-  lcd.i2c.createChar(0, uncheckedChar);
-  lcd.i2c.createChar(1, checkedChar);
-  lcd.i2c.createChar(2, lockChar);
-  lcd.i2c.createChar(3, riddleChar);
-  lcd.i2c.createChar(4, simonChar);
-  lcd.i2c.createChar(5, wiringChar);
+  for (int i = 0; i < CHALLENGE_COUNT; i++) {
+    lcd.i2c.createChar(i, challengeChars[i]);
+  }
+
+  lcd.i2c.createChar(6, uncheckedChar);
+  lcd.i2c.createChar(7, checkedChar);
 
   lcd.i2c.backlight();
 }
@@ -46,18 +46,22 @@ void FStatus::printChallenges()
 {
   lcd.i2c.setCursor(0, 1);
 
-  lcd.i2c.write(2);
-  lcd.i2c.write(challenges[0] ? 1 : 0);
+  for (int i = 0; i < CHALLENGE_COUNT; i++) {
+    lcd.i2c.write(i);
+    lcd.i2c.write(challenges[i] ? 7 : 6);
+  }
+}
 
-  lcd.i2c.print(" ");
-  lcd.i2c.write(3);
-  lcd.i2c.write(challenges[1] ? 1 : 0);
+bool FStatus::areAllChallengesDone() {
+  for (bool isDone : challenges) {
+    if (!isDone) {
+      return false;
+    }
+  }
 
-  lcd.i2c.print(" ");
-  lcd.i2c.write(4);
-  lcd.i2c.write(challenges[2] ? 1 : 0);
+  return true;
+}
 
-  lcd.i2c.print(" ");
-  lcd.i2c.write(5);
-  lcd.i2c.write(challenges[3] ? 1 : 0);
+void FStatus::setChallengeDone(int challengeId) {
+  challenges[challengeId] = true;
 }

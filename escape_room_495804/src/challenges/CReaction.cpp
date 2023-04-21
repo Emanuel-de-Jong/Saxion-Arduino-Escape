@@ -1,7 +1,8 @@
 #include "src/challenges/CReaction.h"
 
 CReaction::CReaction()
-    : led1(CREACTION_LED_1_PIN),
+    : CHALLENGE_ID(3),
+      led1(CREACTION_LED_1_PIN),
       led2(CREACTION_LED_2_PIN),
       led3(CREACTION_LED_3_PIN),
       ledToHit(led2),
@@ -84,4 +85,8 @@ void CReaction::turnAllLEDsOff()
   {
     led.turnOff();
   }
+}
+
+int CReaction::getChallengeId() {
+  return CHALLENGE_ID;
 }

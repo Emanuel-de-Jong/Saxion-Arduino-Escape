@@ -1,7 +1,8 @@
 #include "src/challenges/CRiddle.h"
 
 CRiddle::CRiddle()
-    : ledKey(
+    : CHALLENGE_ID(1),
+      ledKey(
           CRIDDLE_LEDKEY_STROBE_PIN,
           CRIDDLE_LEDKEY_CLOCK_PIN,
           CRIDDLE_LEDKEY_DIO_PIN),
@@ -78,4 +79,8 @@ void CRiddle::loop()
       return;
     }
   }
+}
+
+int CRiddle::getChallengeId() {
+  return CHALLENGE_ID;
 }

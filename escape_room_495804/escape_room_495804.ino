@@ -28,10 +28,10 @@ void setup()
 
 void loop()
 {
-  // fStatus.loop();
+  fStatus.loop();
 
-  // cSafe.loop();
+  cSafe.loop();
   cRiddle.loop();
-  // cSimon.loop();
-  // cReaction.loop();
+  cSimon.loop();
+  cReaction.loop();
 }

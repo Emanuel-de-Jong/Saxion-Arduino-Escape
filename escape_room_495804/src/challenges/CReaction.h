@@ -11,6 +11,8 @@
 class CReaction
 {
 private:
+  const int CHALLENGE_ID;
+
   LED led1;
   LED led2;
   LED led3;
@@ -36,6 +38,8 @@ public:
 
   void setup();
   void loop();
+
+  int getChallengeId();
 };
 
 #endif
