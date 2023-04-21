@@ -1,3 +1,5 @@
+// Figure out what the numbers mean and press the right buttons accordingly
+
 #ifndef CRIDDLE_H
 #define CRIDDLE_H
 

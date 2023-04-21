@@ -1,3 +1,5 @@
+// Repeat the color sequence in the right order as it increases in complexity
+
 #ifndef CSIMON_H
 #define CSIMON_H
 

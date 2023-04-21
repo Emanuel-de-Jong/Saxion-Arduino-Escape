@@ -1,3 +1,6 @@
+// The root of the project
+// The challenges, functions and global hardware are created, initialized and looped here
+
 #include "src/globals.h"
 
 #include "src/functions/FStatus.h"
@@ -9,6 +12,7 @@
 
 #include "src/hardware/Buzzer.h"
 
+// The buzzer is used by multiple components, so it's defined globally here
 Buzzer buzzer(BUZZER_PIN);
 
 CSafe cSafe(buzzer);

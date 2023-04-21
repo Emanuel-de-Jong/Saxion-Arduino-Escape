@@ -1,9 +1,11 @@
+// All pins defined in a single place
+// For an overview and easy customization
+// Also makes it easy to see if a pin is accidentaly used twice
+
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
 #include <Arduino.h>
-
-#define TEMPL_PIN 0
 
 #define BUZZER_PIN 13
 

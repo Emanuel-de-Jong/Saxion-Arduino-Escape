@@ -1,3 +1,5 @@
+// Test your reaction speed by pressing the button at the right time when the green LED is lit
+
 #ifndef CREACTION_H
 #define CREACTION_H
 
