@@ -30,6 +30,7 @@ int LED::getPin() const
   return pin;
 }
 
+// Compares 2 LEDs by their pin number
 bool LED::operator==(const LED &led) const
 {
   return getPin() == led.getPin();

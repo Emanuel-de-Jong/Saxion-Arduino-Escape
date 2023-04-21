@@ -21,6 +21,7 @@ private:
 
   Buzzer &buzzer;
 
+  // Time the user has to solve the challenges in seconds
   const int SOLVE_TIME;
 
   const int CHALLENGE_COUNT = 4;
@@ -31,12 +32,16 @@ private:
       false,
       false};
 
+  // How often the status of the challenges are checked, and the time is updated
   const int REFRESH_RATE;
   int millisSinceRefresh = 0;
 
   bool hasWon = false;
   bool hasLost = false;
 
+  // CUSTOM TEXT CHARACTERS //
+
+  // Indicates a challenge is not done
   byte uncheckedChar[8] = {
       B00000,
       B00000,
@@ -46,6 +51,7 @@ private:
       B10001,
       B10001,
       B11111};
+  // Indicates a challenge is done
   byte checkedChar[8] = {
       B00000,
       B00000,
@@ -56,6 +62,7 @@ private:
       B11111,
       B11111};
 
+  // Indicates the challenges
   byte challengeChars[4][8] = {
       {// Safe
        B00000,

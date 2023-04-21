@@ -14,9 +14,11 @@ private:
   LED ledGreen;
   LED ledBlue;
 
+  // Remember the current RGB so it can be set again after the LED is turned off and on again
   RGB &currentRGB;
 
 public:
+  // Default RGB values that outside code can use for setColor()
   RGB BLACK;
   RGB WHITE;
   RGB RED;

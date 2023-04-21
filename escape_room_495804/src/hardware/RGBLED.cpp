@@ -12,7 +12,7 @@ RGBLED::RGBLED(uint8_t ledRedPin, uint8_t ledGreenPin, uint8_t ledBluePin)
       DARK_GREEN(0, 200, 0),
       BLUE(0, 0, 255),
       YELLOW(255, 255, 0),
-      currentRGB(BLACK)
+      currentRGB(BLACK) // The default RGB is black
 {
 }
 
@@ -25,6 +25,7 @@ void RGBLED::setup()
 
 void RGBLED::turnOn()
 {
+  // There is no need to call the turnOn methods of the LEDs
   setColor(currentRGB);
 }
 

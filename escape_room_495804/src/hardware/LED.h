@@ -18,6 +18,7 @@ public:
   void setBrightness(int brightness);
   int getPin() const;
 
+  // Compares 2 LEDs by their pin number
   bool operator==(const LED &led) const;
 };
 

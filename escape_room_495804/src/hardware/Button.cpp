@@ -22,6 +22,7 @@ int Button::getPin() const
   return pin;
 }
 
+// Compares 2 buttons by their pin number
 bool Button::operator==(const Button &button) const
 {
   return getPin() == button.getPin();

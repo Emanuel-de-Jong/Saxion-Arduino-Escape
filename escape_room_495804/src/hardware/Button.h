@@ -17,6 +17,7 @@ public:
   bool isPressed();
   int getPin() const;
 
+  // Compares 2 buttons by their pin number
   bool operator==(const Button &button) const;
 };
 

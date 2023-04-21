@@ -10,6 +10,7 @@ void LEDKey::setup()
   tm.displayBegin();
 }
 
+// Returns the index of the first pressed button or -1 when no button is pressed
 int LEDKey::getPressedBtn()
 {
   uint8_t buttons = tm.readButtons();
