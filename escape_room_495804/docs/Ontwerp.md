@@ -15,4 +15,4 @@ In `escape_room` staan de hoofd `setup` en `loop` functies. Hier worden de `setu
 
 ## Sequentie Diagram
 <img src="imgs/ontwerp/Sequence%20Diagram%20-%20Safe.jpg" width="800px"></img><br>
-Bij het draaien van de potmeter veranderd de analoge waarde die naar de arduino wordt gestuurd. Deze kan gelezen worden via de bijbehorende `Potmeter` klas. De safe challenge klas (`CSafe`) leest daar de waarde en kijkt dan bij de huidige stage (`CSafeStage`) of het binnen het nodige bereik ligt. Zo ja, wordt de buzzer via de bijbehorende `Buzzer` klas aangestuurd.
+Bij het draaien van de potmeter veranderd de analoge waarde die naar de Arduino wordt gestuurd. Deze kan gelezen worden via de bijbehorende `Potmeter` klas. De safe challenge klas (`CSafe`) leest daar de waarde en kijkt dan bij de huidige stage (`CSafeStage`) of het binnen het nodige bereik ligt. Zo ja, wordt de buzzer via de bijbehorende `Buzzer` klas aangestuurd.
