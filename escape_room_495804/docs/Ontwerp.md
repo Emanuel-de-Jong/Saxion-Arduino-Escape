@@ -11,7 +11,7 @@ Sommige challenges hebben een sub klas om de code en data wat te verdelen. Zo he
 
 In `escape_room` staan de hoofd `setup` en `loop` functies. Hier worden de `setup` en `loop` methoden van de challenges en `FStatus` geroepen.
 
-`RGB` is een data klas met een rood, groen en blauw waarde tussen de 0 en 255. `RGBLED` gebruikt deze om zijn 3 `LED`s makkelijk aan te passen. Hier staan ook wat presets van veel gebruikte kleuren.
+`RGB` is een data klas met een rood, groen en blauw waarde tussen de 0 en 255. `RGBLED` gebruikt deze om zijn 3 `LED`'s makkelijk aan te passen. Hier staan ook wat presets van veel gebruikte kleuren.
 
 ## Sequentie Diagram
 <img src="imgs/ontwerp/Sequence%20Diagram%20-%20Safe.jpg" width="800px"></img><br>
