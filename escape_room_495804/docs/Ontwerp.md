@@ -1,5 +1,9 @@
 # Ontwerp
 
+## Dependencies
+- `TM1638plus` 1.9.0 van Gavin Lyons: Om de LED & Key makkelijker te kunnen gebruiken
+- `LiquidCrystal_I2C` van Frank de Brabander: Om de LCD makkelijker via een I2C verbinding te kunnen gebruiken
+
 ## Klassen Diagram
 <img src="imgs/ontwerp/Class%20Diagram.jpg" width="800px"></img><br>
 In `escape_room` worden de challenges, `FStatus` en een globale `Buzzer` aangemaakt. `Globals` heeft definities voor alle pinnen.
