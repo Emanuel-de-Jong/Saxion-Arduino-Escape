@@ -19,7 +19,7 @@ Druk op de reset knop van de Arduino en wacht ongeveer 5 seconden.
 Als er nog geen knop is gedrukt, of dit al een paar seconden niet is gebeurt, wordt automaties de kleuren sequentie in een oneindige loop laten zien. Tussen de kleuren is een korte pauze. Na de sequentie is een langere pauze.
 
 
-
+-----
 
 
 #### Goede knoppen ingedrukt
@@ -35,6 +35,10 @@ Druk op de reset knop van de Arduino en wacht ongeveer 5 seconden.
 ##### Uitleg
 Als alle knoppen in de goede volgorde zijn gedrukt, begint de volgende fase. Deze heeft 1 extra kleur aan het einde.
 
+
+-----
+
+
 #### Foute knop ingedrukt
 ##### Voorbereiding
 Voer eerst test case `Goede knoppen ingedrukt` uit.
@@ -49,7 +53,7 @@ Voer eerst test case `Goede knoppen ingedrukt` uit.
 Als er een foute knop wordt gedrukt begint de challenge opnieuw.
 
 
-
+-----
 
 
 #### Gehaald
@@ -66,7 +70,28 @@ Voer eerst test case `Goede knoppen ingedrukt` 4 keer uit.
 Het zwarte blok laat de gebruiker weten dat de challenge definitief klaar is.
 
 
+-----
 
+
+### Meerdere challenges tergelijk
+##### Voorbereiding
+Druk op de reset knop van de Arduino en wacht ongeveer 5 seconden. Kies bij de eerste 4 stappen zelf uit in welke volgorde je ze volgt.
+
+##### Tabel
+| # | Actie                                                                                      | Verwachte uitkomst                                       | Echte uitkomst                                           | Resultaat |
+|---|--------------------------------------------------------------------------------------------|----------------------------------------------------------|----------------------------------------------------------|-----------|
+| 1 | Draai aan de potmeter tot je de derde hoogste toon hoort. Wacht 2 seconden.                | Na 2 seconden gaat de toon uit                           | Na 2 seconden gaat de toon uit                           | Goed      |
+| 1 | Druk bij de LED & Key twee keer op knop 5                                                  | De LEDs links boven gaan uit                             | De LEDs links boven gaan uit                             | Goed      |
+| 1 | Voer test case Simon Says "Goede knoppen ingedrukt" uit. Sla hierbij de voorbereiding over | De LED is kort groen                                     | De LED is kort groen                                     | Goed      |
+| 1 | Bij de challenge Reaction Time, Druk de knop als een van de de rode LEDs brand             | De rode LED knippert een paar keer                       | De rode LED knippert een paar keer                       | Goed      |
+| 2 | Kijk naar het scherm                                                                       | De tijd loopt en alle status vakjes zijn nog leeg        | De tijd loopt en alle status vakjes zijn nog leeg        | Goed      |
+| 3 | Druk bij de LED & Key vijf keer op knop 8                                                  | De LEDs rechts boven gaan uit en je hoort een korte piep | De LEDS rechts boven gaan uit en je hoort een korte piep | Goed      |
+
+##### Uitleg
+We testen hier of de challenges afzondelijk en asynchroon werken. Met de eerste 4 stappen worden de challenges op een half afgemaakte stand gezet. Stap 2 en 3 testen of alles nog werkt zoals verwacht.
+
+
+-----
 
 
 ### Win
@@ -85,7 +110,7 @@ Haal alle challenges.
 De melodie laat de gebruiker weten dat hij/zij heeft gewonnen. Voor de zekerheid worden alle challenges uit gezet bij het winnen. Stap 4 test dit.
 
 
-
+-----
 
 
 ### Timeout
@@ -106,4 +131,6 @@ De piepen laten de gebruiker weten dat hij/zij heeft verloren. Voor de zekerheid
 
 
 
-## Test Raport
+## Test Rapport
+Zoals te zien aan de test cases, is alles uit eindelijk gegaan zoals verwacht. Ik heb ook veel dingen buiten de test cases getest.
+Het is niet mogelijk om vals te spelen zonder de draden aan te raken. Bij het 5+ keer halen en 3 keer verliesen van de laatste versie van de escape room heb ik geen problemen gevinden. Vrienden en familie hebben ook niets gevonden.
