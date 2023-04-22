@@ -1,7 +1,8 @@
 #include "src/functions/FStatus.h"
 
 FStatus::FStatus(Buzzer &buzzer, CSafe *cSafe, CRiddle *cRiddle, CSimon *cSimon, CReaction *cReaction)
-    : buzzer(buzzer), // A reference to the global buzzer
+    : lcd(FSTATUS_LCD),
+      buzzer(buzzer), // A reference to the global buzzer
       SOLVE_TIME(3 * 60),
       // SOLVE_TIME(3), // To test the time running out
       REFRESH_RATE(500),
