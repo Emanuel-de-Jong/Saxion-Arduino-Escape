@@ -70,8 +70,40 @@ Het zwarte blok laat de gebruiker weten dat de challenge definitief klaar is.
 
 
 ### Win
+##### Voorbereiding
+Haal alle challenges.
+
+##### Tabel
+| # | Actie                                                          | Verwachte uitkomst                                                        | Echte uitkomst                        | Resultaat |
+|---|----------------------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------|-----------|
+| 1 | De buzzer speelt de win melodie af                             | Je hoort de melodie                                                       | Je hoort de melodie                   | Goed      |
+| 2 | Het scherm laat een tekst zien                                 | Op het scherm staat: "YOU WIN!!!"                                         | Op het scherm staat: "YOU WIN!!!"     | Goed      |
+| 3 | Het scherm laat de score zien                                  | Op het scherm staat: "SCORE: x/180" waarbij x de overgebleven seconden is | Op het scherm staat: "SCORE: 126/180" | Goed      |
+| 4 | Druk op wat knoppen van de challenges en draai aan de potmeter | Er gebeurt niets                                                          | Er gebeurt niets                      | Goed      |
+
+##### Uitleg
+De melodie laat de gebruiker weten dat hij/zij heeft gewonnen. Voor de zekerheid worden alle challenges uit gezet bij het winnen. Stap 4 test dit.
+
+
+
+
 
 ### Timeout
+##### Voorbereiding
+Wacht tot de timer op het scherm op 0 staat.
+
+##### Tabel
+| # | Actie                                                          | Verwachte uitkomst                 | Echte uitkomst                     | Resultaat |
+|---|----------------------------------------------------------------|------------------------------------|------------------------------------|-----------|
+| 1 | De buzzer speelt de timeout melodie af                         | Je hoort 5 piepen                  | Je hoort 5 piepen                  | Goed      |
+| 2 | Het scherm laat een tekst zien                                 | Op het scherm staat: "YOU LOSE!!!" | Op het scherm staat: "YOU LOSE!!!" | Goed      |
+| 3 | Druk op wat knoppen van de challenges en draai aan de potmeter | Er gebeurt niets                   | Er gebeurt niets                   | Goed      |
+
+##### Uitleg
+De piepen laten de gebruiker weten dat hij/zij heeft verloren. Voor de zekerheid worden alle challenges uit gezet bij een timeout. Stap 4 test dit.
+
+
+
 
 
 ## Test Raport
