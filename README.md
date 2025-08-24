@@ -8,4 +8,4 @@ A DIY "Escape Room" style puzzle box. With good quality, slightly over engineere
 
 | | |
 | :---: | :---: |
-| ![](/Screenshots/.png) | ![](/Screenshots/.png) |
+| ![](/Screenshots/1-Picture.png) | ![](/Screenshots/.png) |
